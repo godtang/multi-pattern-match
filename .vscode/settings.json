@@ -1,7 +1,8 @@
 {
     "files.exclude": {
         "*.o": true,
-        "benchmark": true
+        "benchmark": true,
+        "result1.txt": true
     },
     "editor.formatOnSave": true,
     "files.associations": {

@@ -1,7 +1,7 @@
 
 //Author: tangmengjin
 //Date: 2020-11-24 14:10:40
-//LastEditTime: 2020-11-24 19:03:49
+//LastEditTime: 2020-11-24 20:00:49
 //LastEditors: tangmengjin
 //Description:
 //FilePath: /multi-pattern-match/main.cpp
@@ -13,15 +13,47 @@
 #include "wumanber.h"
 #include "aho_corasick.hpp"
 
+#define BIBLE1 "bible.txt"
+#define PATTERN1 "dict.txt"
+#define RESULT1 "result1.txt"
+
 using namespace std;
 namespace ac = aho_corasick;
 using trie = ac::trie;
 
-size_t bench_aho_corasick(vector<string> text_strings, trie &t, map<string, int> &result)
+void bench_aho_corasick(map<string, int> &result)
 {
+    fstream f_bible(BIBLE1);
+    string line;
+    set<string> input_strings;
+    while (getline(f_bible, line))
+    {
+        input_strings.insert(line);
+    }
+    f_bible.close();
+
+    vector<string> input_vector(input_strings.begin(), input_strings.end());
+
+    set<string> patterns_aho_corasick;
+    fstream f_dict(PATTERN1);
+    while (getline(f_dict, line))
+    {
+        patterns_aho_corasick.insert(line);
+    }
+    f_dict.close();
+    vector<string> pattern_vector(patterns_aho_corasick.begin(), patterns_aho_corasick.end());
+
+    trie t;
+    t.case_insensitive();
+    t.only_whole_words();
+    for (auto &pattern : patterns_aho_corasick)
+    {
+        t.insert(pattern);
+    }
     map<string, int> records;
     size_t count = 0;
-    for (auto &text : text_strings)
+    auto start_time = chrono::high_resolution_clock::now();
+    for (auto &text : input_vector)
     {
         auto matches = t.parse_text(text);
         count += matches.size();
@@ -37,50 +69,19 @@ size_t bench_aho_corasick(vector<string> text_strings, trie &t, map<string, int>
             }
         }
     }
-    cout << "bench_aho_corasick " << records.size() << std::endl;
+    auto end_time = chrono::high_resolution_clock::now();
+    cout << "bench_aho_corasick size=" << records.size() << ", cost "
+         << chrono::duration_cast<chrono::milliseconds>(end_time - start_time).count() << " ms"
+         << std::endl;
     result = records;
-    return count;
+    return;
 }
 
-void analyzeResult(map<string, int> result1, map<string, int> result2)
-{
-    if (result1.size() != result2.size())
-    {
-        map<string, int> resultBig;
-        map<string, int> resultSmall;
-        if (result1.size() < result2.size())
-        {
-            resultBig = result1;
-            resultSmall = result2;
-        }
-        else
-        {
-            resultBig = result2;
-            resultSmall = result1;
-        }
-        for (map<string, int>::iterator it = resultBig.begin(); it != resultBig.end(); ++it)
-        {
-            if (resultSmall.find(it->first) == resultSmall.end())
-            {
-                cout << it->first << " not find" << std::endl;
-            }
-            else
-            {
-                if (result1[it->first] != result2[it->first])
-                {
-                    cout << it->first << " wumanber:" << result1[it->first]
-                         << " aho:" << result2[it->first] << std::endl;
-                }
-            }
-        }
-    }
-}
-
-int main(int argc, char *argv[])
+void bench_wu_manber(map<string, int> &result)
 {
     //step1: init patterns
     vector<string> patterns;
-    ifstream pat("patterns");
+    ifstream pat(PATTERN1);
     string s;
     while (getline(pat, s))
     {
@@ -93,8 +94,9 @@ int main(int argc, char *argv[])
     wu.Init(patterns);
 
     //step3: find patterns using wumanber in paraell
-    ifstream text("text");
+    ifstream text(BIBLE1);
     map<string, int> result_wumanber;
+    auto start_time = chrono::high_resolution_clock::now();
     while (getline(text, s))
     {
         //interface1
@@ -114,38 +116,81 @@ int main(int argc, char *argv[])
             }
         }
     }
-    cout << "wumanber  " << result_wumanber.size() << std::endl;
+    auto end_time = chrono::high_resolution_clock::now();
+    cout << "wumanber size=" << result_wumanber.size() << ", cost "
+         << chrono::duration_cast<chrono::milliseconds>(end_time - start_time).count() << " ms"
+         << std::endl;
+    result = result_wumanber;
+}
 
-    //aho_corasick
-    fstream f_bible("text");
-    string line;
-    set<string> input_strings;
-    while (getline(f_bible, line))
+void analyzeResult(map<string, int> resultWumanber, map<string, int> resultAho)
+{
+    if (resultWumanber.size() != resultAho.size())
     {
-        input_strings.insert(line);
+        map<string, int> resultBig;
+        map<string, int> resultSmall;
+        if (resultWumanber.size() < resultAho.size())
+        {
+            resultBig = resultWumanber;
+            resultSmall = resultAho;
+        }
+        else
+        {
+            resultBig = resultAho;
+            resultSmall = resultWumanber;
+        }
+        for (map<string, int>::iterator it = resultBig.begin(); it != resultBig.end(); ++it)
+        {
+            if (resultSmall.find(it->first) == resultSmall.end())
+            {
+                cout << it->first << " not find" << std::endl;
+            }
+            else
+            {
+                if (resultWumanber[it->first] != resultAho[it->first])
+                {
+                    cout << it->first << " wumanber:" << resultWumanber[it->first]
+                         << " aho:" << resultAho[it->first] << std::endl;
+                }
+            }
+        }
     }
-    f_bible.close();
 
-    vector<string> input_vector(input_strings.begin(), input_strings.end());
-
-    set<string> patterns_aho_corasick;
-    fstream f_dict("patterns");
+    ofstream outFile;
+    outFile.open(RESULT1);
+    fstream f_dict(PATTERN1);
+    string line;
+    outFile << "keyword"
+            << "\t"
+            << "wu-manber"
+            << "\t"
+            << "aho-corasick"
+            << "\n";
     while (getline(f_dict, line))
     {
-        patterns_aho_corasick.insert(line);
+        if (resultWumanber.find(line) != resultWumanber.end())
+        {
+            outFile << line << "\t" << resultWumanber[line] << "\t" << resultWumanber[line] << "\n";
+        }
+        else
+        {
+            outFile << line << "\t" << 0 << "\t" << 0 << "\n";
+        }
     }
+    outFile.close();
     f_dict.close();
-    vector<string> pattern_vector(patterns_aho_corasick.begin(), patterns_aho_corasick.end());
+}
 
-    trie t;
-    t.case_insensitive();
-    t.only_whole_words();
-    for (auto &pattern : patterns_aho_corasick)
-    {
-        t.insert(pattern);
-    }
+int main(int argc, char *argv[])
+{
+
+    map<string, int> result_wumanber;
+    bench_wu_manber(result_wumanber);
+
+    //aho_corasick
+
     map<string, int> result_aho;
-    bench_aho_corasick(input_vector, t, result_aho);
+    bench_aho_corasick(result_aho);
 
     analyzeResult(result_wumanber, result_aho);
     return 0;

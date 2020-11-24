@@ -29,12 +29,14 @@ unsigned int HashCode(const char *str, int len)
 WuManber::WuManber() : mMin(0), mTableSize(0), mBlock(3)
 {
     //VOID
+    bWholeWord = true;
+    bCaseSensitivity = false;
 }
 
 /**
  * @brief Init
  */
-bool WuManber::Init(const vector<string> &patterns)
+bool WuManber::Init(vector<string> &patterns)
 {
     int patternSize = patterns.size();
 
@@ -44,6 +46,36 @@ bool WuManber::Init(const vector<string> &patterns)
         cerr << "Error: wumanber init failed because no pattern specified." << endl;
         return false;
     }
+
+    // 大小写不敏感，英文字母全部转小写
+    vector<string> tempPatterns;
+    if (!bCaseSensitivity)
+    {
+        for (vector<string>::iterator it = patterns.begin(); it != patterns.end(); it++)
+        {
+            string temp = *it;
+            transform(temp.begin(), temp.end(), temp.begin(), ::tolower);
+            tempPatterns.push_back(temp);
+        }
+        patterns = tempPatterns;
+    }
+    else
+    {
+        tempPatterns = patterns;
+    }
+
+    // 通过set去重
+    patterns.clear();
+    set<string> tempSet;
+    for (vector<string>::iterator it = tempPatterns.begin(); it != tempPatterns.end(); it++)
+    {
+        tempSet.insert(*it);
+    }
+    for (set<string>::iterator it = tempSet.begin(); it != tempSet.end(); it++)
+    {
+        patterns.push_back(*it);
+    }
+    patternSize = patterns.size();
 
     //caculate the minmum pattern length
     mMin = patterns[0].length();
@@ -176,8 +208,23 @@ int WuManber::Search(const char *text, const int textLength, ResultSetType &res)
                     if ('\0' == *indexPattern)
                     {
                         string temp = string(mPatterns[iter->second]);
-                        res.insert(temp);
-                        ++hits;
+                        if (bWholeWord)
+                        {
+                            int tempLenth = temp.length();
+                            char c1 = text[index - 1];
+                            char c2 = text[index + tempLenth - 1];
+                            if ((index == 1 || !std::isalpha(text[index - 2])) &&
+                                (temp.length() == textLength || !std::isalpha(text[index + temp.length() - 1])))
+                            {
+                                res.insert(temp);
+                                ++hits;
+                            }
+                        }
+                        else
+                        {
+                            res.insert(temp);
+                            ++hits;
+                        }
                     }
                 } //end if
                 ++iter;
@@ -194,7 +241,12 @@ int WuManber::Search(const char *text, const int textLength, ResultSetType &res)
  */
 int WuManber::Search(const string &str, ResultSetType &res)
 {
-    return Search(str.c_str(), str.length(), res);
+    string temp = str;
+    if (!bCaseSensitivity)
+    {
+        transform(temp.begin(), temp.end(), temp.begin(), ::tolower);
+    }
+    return Search(temp.c_str(), temp.length(), res);
 }
 
 /**
@@ -265,4 +317,12 @@ int WuManber::Search(const char *text, const int textLength)
 int WuManber::Search(const string &str)
 {
     return Search(str.c_str(), str.length());
+}
+void WuManber::setWholeWord(bool val)
+{
+    bWholeWord = val;
+}
+void WuManber::setCaseSensitivity(bool val)
+{
+    bCaseSensitivity = val;
 }

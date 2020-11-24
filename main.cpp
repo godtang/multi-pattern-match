@@ -1,7 +1,7 @@
 
 //Author: tangmengjin
 //Date: 2020-11-24 14:10:40
-//LastEditTime: 2020-11-24 17:47:42
+//LastEditTime: 2020-11-24 19:03:49
 //LastEditors: tangmengjin
 //Description:
 //FilePath: /multi-pattern-match/main.cpp
@@ -17,7 +17,7 @@ using namespace std;
 namespace ac = aho_corasick;
 using trie = ac::trie;
 
-size_t bench_aho_corasick(vector<string> text_strings, trie &t)
+size_t bench_aho_corasick(vector<string> text_strings, trie &t, map<string, int> &result)
 {
     map<string, int> records;
     size_t count = 0;
@@ -38,8 +38,42 @@ size_t bench_aho_corasick(vector<string> text_strings, trie &t)
         }
     }
     cout << "bench_aho_corasick " << records.size() << std::endl;
-
+    result = records;
     return count;
+}
+
+void analyzeResult(map<string, int> result1, map<string, int> result2)
+{
+    if (result1.size() != result2.size())
+    {
+        map<string, int> resultBig;
+        map<string, int> resultSmall;
+        if (result1.size() < result2.size())
+        {
+            resultBig = result1;
+            resultSmall = result2;
+        }
+        else
+        {
+            resultBig = result2;
+            resultSmall = result1;
+        }
+        for (map<string, int>::iterator it = resultBig.begin(); it != resultBig.end(); ++it)
+        {
+            if (resultSmall.find(it->first) == resultSmall.end())
+            {
+                cout << it->first << " not find" << std::endl;
+            }
+            else
+            {
+                if (result1[it->first] != result2[it->first])
+                {
+                    cout << it->first << " wumanber:" << result1[it->first]
+                         << " aho:" << result2[it->first] << std::endl;
+                }
+            }
+        }
+    }
 }
 
 int main(int argc, char *argv[])
@@ -94,7 +128,6 @@ int main(int argc, char *argv[])
 
     vector<string> input_vector(input_strings.begin(), input_strings.end());
 
-    cout << "Generating search patterns ...";
     set<string> patterns_aho_corasick;
     fstream f_dict("patterns");
     while (getline(f_dict, line))
@@ -111,8 +144,9 @@ int main(int argc, char *argv[])
     {
         t.insert(pattern);
     }
+    map<string, int> result_aho;
+    bench_aho_corasick(input_vector, t, result_aho);
 
-    bench_aho_corasick(input_vector, t);
-
+    analyzeResult(result_wumanber, result_aho);
     return 0;
 }

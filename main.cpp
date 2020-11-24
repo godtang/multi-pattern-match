@@ -1,7 +1,7 @@
 
 //Author: tangmengjin
 //Date: 2020-11-24 14:10:40
-//LastEditTime: 2020-11-24 17:00:19
+//LastEditTime: 2020-11-24 17:29:16
 //LastEditors: tangmengjin
 //Description:
 //FilePath: /multi-pattern-match/main.cpp
@@ -32,16 +32,24 @@ int main(int argc, char *argv[])
 
     //step3: find patterns using wumanber in paraell
     ifstream text("text");
+    map<string, int> result_wumanber;
     while (getline(text, s))
     {
         //interface1
         //cout << s << " hit:" << wu.Search(s) << endl;
         //interface2
-        set<string> res;
+        vector<string> res;
         wu.Search(s, res);
-        for (set<string>::iterator it = res.begin(); it != res.end(); ++it)
+        for (vector<string>::iterator it = res.begin(); it != res.end(); ++it)
         {
-            //cout << "\t" << *it << endl;
+            if (result_wumanber.find(*it) != result_wumanber.end())
+            {
+                result_wumanber[*it] = result_wumanber[*it] + 1;
+            }
+            else
+            {
+                result_wumanber[*it] = 1;
+            }
         }
     }
 

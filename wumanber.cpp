@@ -216,13 +216,13 @@ int WuManber::Search(const char *text, const int textLength, ResultSetType &res)
                             if ((index == 1 || !std::isalpha(text[index - 2])) &&
                                 (temp.length() == textLength || !std::isalpha(text[index + temp.length() - 1])))
                             {
-                                res.insert(temp);
+                                res.push_back(temp);
                                 ++hits;
                             }
                         }
                         else
                         {
-                            res.insert(temp);
+                            res.push_back(temp);
                             ++hits;
                         }
                     }

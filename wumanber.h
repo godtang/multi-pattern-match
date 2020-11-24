@@ -1,7 +1,7 @@
 
 //Author: tangmengjin
 //Date: 2020-11-24 14:10:40
-//LastEditTime: 2020-11-24 15:43:11
+//LastEditTime: 2020-11-24 17:24:48
 //LastEditors: tangmengjin
 //Description:
 //FilePath: /multi-pattern-match/wumanber.h
@@ -16,7 +16,7 @@
 #include <bits/stdc++.h>
 #include <set>
 
-typedef std::set<std::string> ResultSetType;
+typedef std::vector<std::string> ResultSetType;
 typedef std::pair<unsigned int, int> PrefixIdPairType;
 typedef std::vector<PrefixIdPairType> PrefixTableType;
 

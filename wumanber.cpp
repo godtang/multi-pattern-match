@@ -12,10 +12,10 @@ using namespace std;
  * 
  * @return hash code
  */
-unsigned int HashCode(const char* str, int len)
+unsigned int HashCode(const char *str, int len)
 {
     unsigned int hash = 0;
-    while (*str && len>0)
+    while (*str && len > 0)
     {
         hash = (*str++) + (hash << 6) + (hash << 16) - hash;
         --len;
@@ -26,7 +26,7 @@ unsigned int HashCode(const char* str, int len)
 /** 
  * @brief constructor 
  */
-WuManber::WuManber():mMin(0), mTableSize(0), mBlock(3)
+WuManber::WuManber() : mMin(0), mTableSize(0), mBlock(3)
 {
     //VOID
 }
@@ -34,7 +34,7 @@ WuManber::WuManber():mMin(0), mTableSize(0), mBlock(3)
 /**
  * @brief Init
  */
-bool WuManber::Init(const vector<string>& patterns)
+bool WuManber::Init(const vector<string> &patterns)
 {
     int patternSize = patterns.size();
 
@@ -44,11 +44,11 @@ bool WuManber::Init(const vector<string>& patterns)
         cerr << "Error: wumanber init failed because no pattern specified." << endl;
         return false;
     }
-    
+
     //caculate the minmum pattern length
     mMin = patterns[0].length();
     int32_t lenPattern = 0;
-    for (int i = 0; i < patternSize; ++i) 
+    for (int i = 0; i < patternSize; ++i)
     {
         lenPattern = patterns[i].length();
         if (lenPattern < mMin)
@@ -77,7 +77,7 @@ bool WuManber::Init(const vector<string>& patterns)
             break;
         }
     }
-    
+
     //if size of patternList is huge.
     if (0 == mTableSize)
     {
@@ -93,15 +93,15 @@ bool WuManber::Init(const vector<string>& patterns)
     mShiftTable.resize(mTableSize, defaultValue);
 
     //loop through patterns
-    for (int id = 0; id < patternSize; ++id) 
-    { 
+    for (int id = 0; id < patternSize; ++id)
+    {
         // loop through each pattern from right to left
         for (int index = mMin; index >= mBlock; --index)
         {
             unsigned int hash = HashCode(patterns[id].c_str() + index - mBlock, mBlock) % mTableSize;
             if (mShiftTable[hash] > (mMin - index))
             {
-                mShiftTable[hash]  = mMin - index;
+                mShiftTable[hash] = mMin - index;
             }
             if (index == mMin)
             {
@@ -122,20 +122,19 @@ WuManber::~WuManber()
     //VOID
 }
 
-
 /**
  * @public
  * @brief search multiple pattern in text at one time
  */
-int WuManber::Search(const char* text, const int textLength, ResultSetType& res)
+int WuManber::Search(const char *text, const int textLength, ResultSetType &res)
 {
     //hit count: value to be returned
     int hits = 0;
     int32_t index = mMin - 1; // start off by matching end of largest common pattern
-    
+
     int32_t blockMaxIndex = mBlock - 1;
     int32_t windowMaxIndex = mMin - 1;
-    
+
     while (index < textLength)
     {
         unsigned int blockHash = HashCode(text + index - blockMaxIndex, mBlock);
@@ -146,7 +145,7 @@ int WuManber::Search(const char* text, const int textLength, ResultSetType& res)
             index += shift;
         }
         else
-        {  
+        {
             // we have a potential match when shift is 0
             unsigned int prefixHash = HashCode(text + index - windowMaxIndex, mBlock);
             PrefixTableType &element = mHashTable[blockHash];
@@ -155,12 +154,12 @@ int WuManber::Search(const char* text, const int textLength, ResultSetType& res)
             while (element.end() != iter)
             {
                 if (prefixHash == iter->first)
-                {   
+                {
                     // since prefindex matches, compare target substring with pattern
                     // we know first two characters already match
-                    const char* indexTarget = text + index - windowMaxIndex;    //+mBlock
-                    const char* indexPattern = mPatterns[iter->second].c_str(); //+mBlock
-                    
+                    const char *indexTarget = text + index - windowMaxIndex;    //+mBlock
+                    const char *indexPattern = mPatterns[iter->second].c_str(); //+mBlock
+
                     while (('\0' != *indexTarget) && ('\0' != *indexPattern))
                     {
                         // match until we reach end of either string
@@ -176,15 +175,16 @@ int WuManber::Search(const char* text, const int textLength, ResultSetType& res)
                     // match succeed since we reach the end of the pattern.
                     if ('\0' == *indexPattern)
                     {
-                        res.insert(string(mPatterns[iter->second]));
+                        string temp = string(mPatterns[iter->second]);
+                        res.insert(temp);
                         ++hits;
                     }
-                }//end if
+                } //end if
                 ++iter;
-            }//end while
+            } //end while
             ++index;
-        }//end else
-    }//end while
+        } //end else
+    }     //end while
 
     return hits;
 }
@@ -192,7 +192,7 @@ int WuManber::Search(const char* text, const int textLength, ResultSetType& res)
 /**
  * Search
  */
-int WuManber::Search(const string& str, ResultSetType& res)
+int WuManber::Search(const string &str, ResultSetType &res)
 {
     return Search(str.c_str(), str.length(), res);
 }
@@ -200,7 +200,7 @@ int WuManber::Search(const string& str, ResultSetType& res)
 /**
  * Search
  */
-int WuManber::Search(const char* text, const int textLength)
+int WuManber::Search(const char *text, const int textLength)
 {
     //hit count: value to be returned
     int hits = 0;
@@ -232,8 +232,8 @@ int WuManber::Search(const char* text, const int textLength)
                 {
                     // since prefindex matches, compare target substring with pattern
                     // we know first two characters already match
-                    const char* indexTarget = text + index - windowMaxIndex;    //+mBlock
-                    const char* indexPattern = mPatterns[iter->second].c_str();  //+mBlock
+                    const char *indexTarget = text + index - windowMaxIndex;    //+mBlock
+                    const char *indexPattern = mPatterns[iter->second].c_str(); //+mBlock
 
                     while (('\0' != *indexTarget) && ('\0' != *indexPattern))
                     {
@@ -252,18 +252,17 @@ int WuManber::Search(const char* text, const int textLength)
                     {
                         ++hits;
                     }
-                }//end if
+                } //end if
                 ++iter;
-            }//end while
+            } //end while
             ++index;
-        }//end else
-    }//end while
+        } //end else
+    }     //end while
 
     return hits;
 }
 
-int WuManber::Search(const string& str)
+int WuManber::Search(const string &str)
 {
     return Search(str.c_str(), str.length());
 }
-

@@ -1,3 +1,12 @@
+
+//Author: tangmengjin
+//Date: 2020-11-24 14:10:40
+//LastEditTime: 2020-11-24 15:00:50
+//LastEditors: tangmengjin
+//Description:
+//FilePath: /multi-pattern-match/main.cpp
+//nothing to say
+
 #include <iostream>
 #include <fstream>
 #include <vector>
@@ -5,14 +14,17 @@
 
 using namespace std;
 
-int main(int argc, char* argv[])
+int main(int argc, char *argv[])
 {
     //step1: init patterns
     vector<string> patterns;
     ifstream pat("patterns");
     string s;
-    while (pat>>s)
+    while (getline(pat, s))
+    {
         patterns.push_back(s);
+    }
+    pat.close();
 
     //step2: init wumanber
     WuManber wu;
@@ -20,18 +32,18 @@ int main(int argc, char* argv[])
 
     //step3: find patterns using wumanber in paraell
     ifstream text("text");
-    while (text>>s)
+    while (getline(text, s))
     {
         //interface1
-        cout << s << " hit:" << wu.Search(s) << endl;
+        //cout << s << " hit:" << wu.Search(s) << endl;
         //interface2
         set<string> res;
         wu.Search(s, res);
         for (set<string>::iterator it = res.begin(); it != res.end(); ++it)
         {
-            cout << "\t" << *it << endl;
+            //cout << "\t" << *it << endl;
         }
-    }    
-    
+    }
+
     return 0;
 }

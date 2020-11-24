@@ -32,6 +32,7 @@
 #include <queue>
 #include <utility>
 #include <vector>
+#include <bits/stdc++.h>
 
 namespace aho_corasick
 {
@@ -504,6 +505,8 @@ namespace aho_corasick
 		{
 			if (keyword.empty())
 				return;
+			if (d_config.is_case_insensitive())
+				transform(keyword.begin(), keyword.end(), keyword.begin(), ::tolower);
 			state_ptr_type cur_state = d_root.get();
 			for (const auto &ch : keyword)
 			{

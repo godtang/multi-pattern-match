@@ -605,8 +605,8 @@ namespace aho_corasick
 				{
 					continue;
 				}
-				if ((e.get_start() == 0 || (!std::isalpha(search_text.at(e.get_start() - 1)) && '_' != (char)search_text.at(e.get_start() - 1))) &&
-					(e.get_end() + 1 == size || (!std::isalpha(search_text.at(e.get_end() + 1)) && '_' != (char)search_text.at(e.get_end() + 1))))
+				if ((e.get_start() == 0 || !std::isalpha(search_text.at(e.get_start() - 1))) &&
+					(e.get_end() + 1 == size || !std::isalpha(search_text.at(e.get_end() + 1))))
 				{
 					continue;
 				}

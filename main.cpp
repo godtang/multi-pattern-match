@@ -1,7 +1,7 @@
 
 //Author: tangmengjin
 //Date: 2020-11-24 14:10:40
-//LastEditTime: 2020-11-25 16:07:28
+//LastEditTime: 2020-11-25 18:10:41
 //LastEditors: tangmengjin
 //Description:
 //FilePath: /multi-pattern-match/main.cpp
@@ -40,10 +40,10 @@ void bench_aho_corasick(string textFile, string patternFile, map<string, int> &r
     fstream f_dict(patternFile);
     while (getline(f_dict, line))
     {
+        transform(line.begin(), line.end(), line.begin(), ::tolower);
         patterns_aho_corasick.insert(line);
     }
     f_dict.close();
-    vector<string> pattern_vector(patterns_aho_corasick.begin(), patterns_aho_corasick.end());
 
     trie t;
     t.case_insensitive();
@@ -171,21 +171,22 @@ void analyzeResult(string resultFile, string patternFile,
             << "\n";
     while (getline(f_dict, line))
     {
+        string lineSrc = line;
         transform(line.begin(), line.end(), line.begin(), ::tolower);
         if (resultWumanber.find(line) != resultWumanber.end())
         {
             if (resultWumanber[line] == resultAho[line])
             {
-                outFile << line << "\t" << resultWumanber[line] << "\t" << resultAho[line] << "\n";
+                outFile << lineSrc << "\t" << resultWumanber[line] << "\t" << resultAho[line] << "\n";
             }
             else
             {
-                outFile << line << "\t" << resultWumanber[line] << "\t" << resultAho[line] << "\tunmatch\n";
+                outFile << lineSrc << "\t" << resultWumanber[line] << "\t" << resultAho[line] << "\tunmatch\n";
             }
         }
         else
         {
-            outFile << line << "\t" << 0 << "\t" << 0 << "\t not find\n";
+            outFile << lineSrc << "\t" << 0 << "\t" << 0 << "\t not find\n";
         }
     }
     outFile.close();

@@ -212,9 +212,9 @@ int WuManber::Search(const char *text, const int textLength, ResultSetType &res)
                         if (bWholeWord && temp[0] > 0)
                         {
                             if ((index - windowMaxIndex == 0 ||
-                                 (!std::isalpha(text[index - windowMaxIndex - 1]) && '_' != text[index - windowMaxIndex - 1])) &&
+                                 !std::isalpha(text[index - windowMaxIndex - 1])) &&
                                 (index - windowMaxIndex + temp.length() == textLength ||
-                                 (!std::isalpha(text[index - windowMaxIndex + temp.length()]) && '_' != text[index - windowMaxIndex + temp.length()])))
+                                 !std::isalpha(text[index - windowMaxIndex + temp.length()])))
                             {
                                 res.push_back(temp);
                                 ++hits;

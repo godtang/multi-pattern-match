@@ -1,7 +1,7 @@
 <!--
  * @Author: tangmengjin
  * @Date: 2020-11-24 14:10:40
- * @LastEditTime: 2020-11-25 17:35:43
+ * @LastEditTime: 2020-11-25 18:14:28
  * @LastEditors: tangmengjin
  * @Description: 
  * @FilePath: /multi-pattern-match/README.md
@@ -81,9 +81,9 @@
     +                        if (bWholeWord && temp[0] > 0)
     +                        {
     +                            if ((index - windowMaxIndex == 0 ||
-    +                                 (!std::isalpha(text[index - windowMaxIndex - 1]) && '_' != text[index - windowMaxIndex - 1])) &&
+    +                                 !std::isalpha(text[index - windowMaxIndex - 1])) &&
     +                                (index - windowMaxIndex + temp.length() == textLength ||
-    +                                 (!std::isalpha(text[index - windowMaxIndex + temp.length()]) && '_' != text[index - windowMaxIndex + temp.length()])))
+    +                                 !std::isalpha(text[index - windowMaxIndex + temp.length()])))
     +                            {
     +                                res.push_back(temp);
     +                                ++hits;
@@ -113,8 +113,8 @@
     + {
     +     continue;
     + }
-    + if ((e.get_start() == 0 || (!std::isalpha(search_text.at(e.get_start() - 1)) && '_' != (char)search_text.at(e.get_start() - 1))) &&
-    +    (e.get_end() + 1 == size || (!std::isalpha(search_text.at(e.get_end() + 1)) && '_' != (char)search_text.at(e.get_end() + 1))))
+    + if ((e.get_start() == 0 || !std::isalpha(search_text.at(e.get_start() - 1))) &&
+    +    (e.get_end() + 1 == size || !std::isalpha(search_text.at(e.get_end() + 1)) ))
     {
         continue;
     }

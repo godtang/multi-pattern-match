@@ -208,3 +208,1105 @@ c++全局变量与局部变量初始化情况分析
 python实现替换某个文件中的某个字符串（全部替换）
 2018年5篇
 举报
+
+发现
+关注
+消息
+
+Markdown文字加粗与斜体以及换行
+
+Sunnky
+Markdown文字加粗与斜体以及换行
+
+Sunnky
+0.542
+2017.08.29 17:45:50
+字数 108
+阅读 94,115
+Markdown排版经常遇到的问题：
+
+1.文字加粗：
+**这是加粗的文字** 
+这是加粗的文字
+
+2.斜体文字：
+*这是斜体文字* 
+这是斜体文字
+
+3.自定义字体大小：
+<font size=4>我是变大的字</font>
+<font size=4>我是变大的字</font>
+<font size="4">我是变大的字</font>
+
+4.字体变大变小标签
+<small>字体变小</small>
+<big>字体变大</big>
+<small>字体变小</small>
+<big>字体变大</big>
+
+很可惜，简书不支持后面这两种，在其他markdown编辑器下：
+image.png
+5.换行：
+空格+空格+回车
+"小礼物走一走，来简书关注我"
+还没有人赞赏，支持一下
+  
+Sunnky
+大道至简
+总资产7 (约0.49元)共写了1.0W字获得195个赞共23个粉丝
+
+
+全部评论
+0
+被以下专题收入，发现更多相似内容
+推荐阅读
+更多精彩内容
+初识Markdown
+前言： Markdown所具备的诸多优点，致使其在程序员、极客圈、自媒体圈和作家圈非常流行。 markdown优点...
+
+卐鑫卍
+阅读 3,046
+评论 0
+赞 4
+让你的Markdown用起来得心应手
+文字的发明和使用使得信息的保存和传递有了革命性的飞跃。随着信息的丰富和传递方式的革新，人们对文本提出了新的格式化的...
+
+haoeric
+阅读 6,368
+评论 1
+赞 16
+
+认识Markdown——网络写手的创作神器
+0 - 前话 随着简书的流行，开博撰文、码字著作风潮日盛，越来越多的同学在微信和QQ群@Mr_Professor...
+
+猿教授
+阅读 12,520
+评论 107
+赞 586
+
+晴天
+清晨，一缕阳光缓缓地翻过阳台，绕过厚厚的紫色的帘子，悄悄的溜到了我的床上，趴在我的被子上枕头边，就像我的爱人一样。...
+
+葱葱躺过人生河
+阅读 51
+评论 0
+赞 1
+mysql 基础知识
+1.如何防止sql 注入？ a.表单一般用post （post 和get 可以同时用如果非要则用地址栏的形式）减...
+
+雷一凡
+阅读 35
+评论 0
+赞 0
+
+Sunnky
+总资产7 (约0.49元)
+Docker 部署 redis集群
+阅读 14
+JS进制转换
+阅读 11
+zip 压缩时不创建外层文件夹，解压后直接是子文件
+阅读 166
+推荐阅读
+从零开始学习Linux（三）：文件处理命令
+阅读 37
+12 个实用的前端开发技巧总结
+阅读 1,333
+字节跳动前端面试题（1）
+阅读 408
+Flutter Stack实现头像层叠效果
+阅读 213
+啥是前端开发工程师必会的5种网页布局方法？
+阅读 413
+
+CSDN首页
+博客
+学院
+下载
+论坛
+问答
+代码
+招聘
+电子书
+VIP会员
+  
+创作中心
+收藏
+消息
+登录/注册
+Markdown代码块语法高亮显示
+
+天心天地生 2020-04-13 19:27:31   1194   收藏 1
+分类专栏： 工具使用
+版权
+语言支持
+名称	关键字	调用的js	说明
+AppleScript	applescript	shBrushAppleScript.js	
+ActionScript 3.0	actionscript3 , as3	shBrushAS3.js	
+Shell	bash , shell	shBrushBash.js	命令行操作，git操作
+ColdFusion	coldfusion , cf	shBrushColdFusion.js	
+C	cpp , c	shBrushCpp.js	
+C#	c# , c-sharp , csharp	shBrushCSharp.js	
+CSS	css	shBrushCss.js	
+Delphi	delphi , pascal , pas	shBrushDelphi.js	
+diff&patch	diff patch	shBrushDiff.js	用代码版本库时,遇到代码冲突,其语法就是这个.
+Erlang	erl , erlang	shBrushErlang.js	
+Groovy	groovy	shBrushGroovy.js	
+Java	java	shBrushJava.js	
+JavaFX	jfx , javafx	shBrushJavaFX.js	
+JavaScript	js , jscript , javascript	shBrushJScript.js	
+Perl	perl , pl , Perl	shBrushPerl.js	
+PHP	php	shBrushPhp.js	
+text	text , plain	shBrushPlain.js	就是普通文本.
+Python	py , python	shBrushPython.js	
+Ruby	ruby , rails , ror , rb	shBrushRuby.js	
+SASS&SCSS	sass , scss	shBrushSass.js	
+Scala	scala	shBrushScala.js	
+SQL	sql	shBrushSql.js	
+Visual Basic	vb , vbnet	shBrushVb.js	
+XML	xml , xhtml , xslt , html	shBrushXml.js	
+Objective C	objc , obj-c	shBrushObjectiveC.js	
+F#	f# f-sharp , fsharp	shBrushFSharp.js	
+xpp , dynamics-xpp	shBrushDynamics.js	
+R	r , s , splus	shBrushR.js	
+matlab	matlab	shBrushMatlab.js	
+swift	swift	shBrushSwift.js	
+GO	go , golang	shBrushGo.js	
+示例
+C语言
+```c
+#include <stdio.h>
+
+int main()
+{
+    /* 我的第一个 C 程序 */
+    printf(“Hello, World! \n”);
+    return 0;
+}
+```
+显示效果
+
+#include <stdio.h>
+int main()
+{
+    /* 我的第一个 C 程序 */
+    printf(“Hello, World! \n”);
+    return 0;
+}
+1
+2
+3
+4
+5
+6
+7
+python
+```python
+#!/usr/bin/python3
+print(“Hello, World!”);
+```
+显示效果
+
+#!/usr/bin/python3
+print(“Hello, World!”);
+1
+2
+shell
+```shell
+#!/usr/bin/python3
+print(“Hello, World!”);
+git push -f origin master ## 这里假设只有一个master分支
+```
+
+显示效果
+
+git reflog
+git reset --hard Obfafd
+1
+2
+JavaScript
+```js
+if (time<10)
+{
+document.write(“早上好”);
+}
+else if (time>=10 && time<16)
+{
+document.write(“今天好”);
+}
+else
+{
+document.write(“晚上好!”);
+}
+```
+显示效果
+
+if (time<10)
+{
+    document.write("<b>早上好</b>");
+}
+else if (time>=10 && time<16)
+{
+    document.write("<b>今天好</b>");
+}
+else
+{
+    document.write("<b>晚上好!</b>");
+}
+1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+CSS
+```css
+
+body
+{
+background-color:#d0e4fe;
+}
+h1
+{
+color:orange;
+text-align:center;
+}
+p
+{
+font-family:“Times New Roman”;
+font-size:20px;
+}
+```
+显示效果
+
+body
+{
+ background-color:#d0e4fe;
+}
+h1
+{
+ color:orange;
+ text-align:center;
+}
+p
+{
+ font-family:"Times New Roman";
+ font-size:20px;
+}
+1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+
+点赞
+1
+
+评论
+
+分享
+
+收藏
+1
+
+打赏
+
+举报
+关注
+一键三连
+
+66个Python新手项目，学完立马上手做项目
+11-23
+一个 Python 程序员的成长路线图应该是这样子的：基础语法–>语感训练–>课题练习–>分方向继续学习–>中级程序员–>拓展深度和广度–>高级程序员。
+Markdown帮助文档（CSDN官方更新版）- 05 代码块与语法高亮
+flashfishoo的博客
+ 334
+本文结构 1. 代码块 2. 语法高亮 1. 代码块 ↑↑\uparrow 用TAB键起始的段落，会被认为是代码块，如下： echo “hello world”; 如果在一个行内需要引用代码，只要用反引号`引起来就好，如下： Use the printf() function. 2. 语法高亮 ↑↑\uparrow 在需要高亮的代码块的前一行及...
+ 
+
+【每天1分钟】MarkDown语法学习之插入代码块
+小白TOO爱学习的博客
+ 1万+
+【每天1分钟】MarkDown语法学习之插入代码块 Markdown在IT圈子里面比较流行的一个重要原因是，它能够轻松漂亮地插入代码。 方法是，使用反引号`进行包裹即可。如果是行内代码引用，使用单个反引号进行包裹 这是一段 var x = 3 行内代码 如果插入一整段代码，需要至少使用两个以上反引号进行包裹， 看效果： fun (x: Int, y: Int): Int { return x ...
+Markdown代码块语法的血泪史
+下半夜的风
+ 566
+前言：Markdown是一种可以使用普通文本编辑器编写的标记语言，通过简单的标记语法，它可以使普通文本内容具有一定的格式。 1、“```”语法的说明   关于 ```语法的作用相信都知道吧，就是声明一块空间用于代码使用的。但是呢我这小白刚使用Markdown语法时，踩到的坑真的是要我飙血三升啊╮(╯﹏╰）╭为什么这么说嘞，下面让我来一一陈述吧。 2、“血泪史”啊   刚一开始我是使用Markd...
+Markdown语法(二)——链接&代码块_陆小白很白的博客-CSDN博客
+11-18
+  还有一些时候,我们不需要展示代码的语法高亮,我们只想展示最原始的代码,例如,我们在展示markdown操作语法时,不希望浏览器把它解码,而仅仅是把它当成普通文本...
+CSDN博客Markdown编辑器代码块语法高亮 -- C#, C++, VB.net...
+11-21
+我在CSDN,找到了高人用HTML做语法高亮的。可以细粒度的控制所有代码的颜色。 ...publicstaticStringextract(Stringstr,StringmarkName,StringendTag){ ...
+Markdown语法介绍（详细）
+阿飞的博客
+ 2万+
+一、什么是 Markdown    Markdown 是一种可以使用普通文本编辑器编写的标记语言，通过简单的标记语法，它可以使普通文本内容具有一定的格式。   二、下载和使用 1. 客户端     我使用的是 作业部落 出品的 Cmd Markdown，下面演示也是使用该 IDE 作为演示。 2. 网页插件     如果你使用的是 chrome 游览器，那么可以安装一款叫做 Mark...
+Markdown语法009：代码块
+普智Python
+ 2万+
+行内代码： 如果要标记一小段行内代码，你可以用反引号把它包起来，例如： C语言中使用`printf()`进行格式化输出。 显示效果：　 C语言中使用printf()进行格式化输出。 代码块： 将要显示的代码块放在３对反引号中间，CSDN提供的编译器支持不同的语法高亮，只要在反引号后接上语言，例如： ``` python a = range(2000) for i in a:...
+Markdown语法图文全面详解(10分钟学会)_黑暗星球-CSDN..._CSDN博客
+11-20
+写过博客或者github上面的文档的,应该知道Markdown语法的重要性,不知道的朋友们也别着急,一篇博客轻松搞定Markdown语法。话说这个语法超级简单,一看就会,不信你点进来...
+CSDN markdown 代码块样式设置_若依不弃的博客-CSDN博客
+10-29
+相关链接CSDN-markdown编辑器语法——背景色CSDN-markdown黑色背景代码生成markdown怎么设置颜色和字体以及背景颜色?
+markdown代码块如何高亮
+马丘
+ 3945
+markdown里面对代码块的引用语法是三个撇，就可以标注代码块的语言。 使用方法： 效果（使用sql） select ip,url,max(access_time) from t_pv_log group by ip,url; 参考：https://blog.csdn.net/shepherd_dirk/article/details/84646379 ...
+个人博客 修改markdown代码块背景颜色
+blackeagleoht的博客
+ 6247
+最近在学习用django搭建个人博客系统，在博客中添加了markdown功能，如下图中的代码块背景色是浅灰色： 感觉这个浅灰色颜色不太好看，想换个颜色，最终找到了修改代码块颜色的地方，修改后代码块颜色如下图（黄色也不大好看，这里只是介绍修改颜色的方法，具体什么颜色好看还需要自己多尝试替换几种颜色）： 下面说一下修改方法。 这里先说一下参考的搭建个人blog的教程：django搭建个人博客系统教...
+Markdown操作——代码块内如何添加代码块+如何引用代码块符号
+11-19
+而且涉及的方面并不多,一般都是***Markdown语法相关***的事情,因为有些语法是含" ```"的。 比如就像是这个例子,这样写只是记录并预览一下数学公式的代码如何...
+markdown语法自定义补全
+weixin_42631693的博客
+ 232
+step1:这里同使用Vscode编辑器创建C++文件模板。在步骤2中输入markdown选择markdown.json,然后参照示例编写自定义补全代码。 step2:Ctrl+,转到setting界面，点击右上角打开setting.json文件 step3: 在markdown大括号内写入`"editor.quickSuggestions": true` step4:在.md文件中输...
+CSDN开发助手，集成开发者常用工具，提升开发效率
+支持本地书签、tab页、历史记录搜索； 集成CSDN搜索结果； 他是一个时间转换工具； 他是一个计算器； 他是。。。，更多功能正在添加中
+vscode Markdown预览模式代码块注释字体修改
+诗和远方
+ 1744
+问题 vscode功能强大，以至于我偶尔写Markdown都用它，其系统设置对Markdown也提供了许多可配置的属性（位于User Settings->Extensions->Markdown），其中就有预览字体的设置，但对其中的代码块并不适用，如下图，代码注释中文字体比较难看。 如何解决呢？经过一翻研究发现如下两个方案： 解决办法 一、安装Markdown Preview Enh...
+©️2020 CSDN 皮肤主题: 游动-白 设计师:上身试试 返回首页
+关于我们
+招贤纳士
+广告服务
+开发助手
+
+400-660-0108
+
+kefu@csdn.net
+
+在线客服
+工作时间 8:30-22:00
+公安备案号11010502030143
+京ICP备19004658号
+京网文〔2020〕1039-165号
+经营性网站备案信息
+北京互联网违法和不良信息举报中心
+网络110报警服务
+中国互联网举报中心
+家长监护
+Chrome商店下载
+©1999-2020北京创新乐知网络技术有限公司
+版权与免责声明
+版权申诉
+
+天心天地生
+码龄3年
+ 暂无认证
+206
+原创
+3036
+周排名
+1万+
+总排名
+44万+
+访问
+ 
+等级
+4828
+积分
+31
+粉丝
+262
+获赞
+24
+评论
+143
+收藏
+GitHub
+签到新秀
+持之以恒
+1024勋章
+勤写标兵Lv4
+学习力
+私信
+关注
+
+热门文章
+太吾绘卷游戏攻略   49094
+js中函数(方法)注释   45199
+JavaScript常见变量和函数命名示例  42534
+js命名与注释规范   42376
+如何在项目中规范git commit格式   42332
+分类专栏
+
+项目开发
+9篇
+
+ES5 Javascript高级程序设计
+4篇
+
+ECMAScript 6 入门
+5篇
+
+工具使用
+35篇
+
+工具使用遇到的问题
+4篇
+
+JS
+32篇
+
+js深度思考
+35篇
+
+JS遇到的问题
+4篇
+
+CSS
+7篇
+
+CSS遇到的问题
+
+CSS深度思考
+65篇
+
+React
+17篇
+
+react基础知识
+8篇
+
+react遇到的问题
+10篇
+
+Angular
+1篇
+
+Angular遇到的问题
+
+微信小程序
+10篇
+
+WX遇到的问题
+1篇
+
+Vue
+14篇
+
+Vue遇到的问题
+5篇
+
+最新评论
+UMI+DVA根据开发环境和生产环境不同动态加载变量
+Chef策码: 写得太好了！
+
+微信小程序setData中键名key中使用变量
+kvæg: 牛
+
+微信小程序setData中键名key中使用变量
+兴越i: 赞
+
+react+umi+dva中使用proxy配置多个跨域
+天心天地生 回复 1024hack: 谷歌浏览器，f12打开控制台，鼠标右击刷新按钮，选择清空缓存并硬性重新加载
+
+react+umi+dva中使用proxy配置多个跨域
+1024hack: 请问怎么清理缓存
+
+最新文章
+使用try catch判断JSON解析情况
+npm源管理工具nrm的基本使用
+react中自定义antd选择器样式
+2020
+11月
+1篇
+08月
+7篇
+07月
+3篇
+06月
+6篇
+05月
+4篇
+04月
+6篇
+03月
+6篇
+02月
+3篇
+01月
+11篇
+2019年183篇2018年33篇
+
+目录
+语言支持
+示例
+C语言
+python
+shell
+JavaScript
+CSS
+
+
+举报
+在线成语词典 生日密码 | 网速测试 | 生活百科 | 逻辑测试 | 歇后语 | 在线字典 | IP地址查询 | 帝国时代2秘籍 | 欣欣旅游
+成语大全成语故事成语对联成语接龙成语动画成语查询成语迷语成语之最反义词成语
+按拼音首字母： A B C D E F G H J K L M N O P Q R S T W X Y Z    特殊成语：1 2 3 4 5 6 7 8 9 10 11 12 13 14 15
+您现在的位置是：IT学习者 -> 成语大全 (网上的成语词典)
+    
+  
+成语大全简介:共30816条成语记录，每条包括发音、释义、出处、示例，并有统计每条成语的人气值供您参考，可当做在线成语词典。
+分享到： QQ空间 新浪微博 腾讯微博 人人网 开心网
+成语点击排行榜
+1.失之东隅，收之桑榆2.坐井观天3.厚积薄发4.不舞之鹤5.否极泰来6.他山之石，可以攻玉7.坐怀不乱8.作茧自缚9.叶公好龙10.醉生梦死11.白龙鱼服12.沐猴而冠13.魑魅魍魉14.投鼠忌器15.凡事预则立，不预则废16.以其昏昏，使人昭昭17.长绳系日18.醉翁之意不在酒19.走马看花20.并日而食21.作壁上观22.趋之若鹜23.道不同不相为谋24.茕茕孑立，形影相吊25.左右逢源26.哀莫大于心死27.多难兴邦28.安之若素29.作舍道边30.走马章台31.水至清则无鱼32.左顾右盼33.缘木求鱼34.不一而足35.语重心长36.哀哀父母37.春风化雨38.步步为营39.做一日和尚撞一天钟40.尺有所短，寸有所长41.少壮不努力，老大徒伤悲42.尊师重道43.蝇营狗苟44.作奸犯科45.左思右想46.吃一堑，长一智47.做贼心虚48.做张做势
+12生肖的成语
+鼠 牛 虎 兔 龙 蛇 马 羊 猴 鸡 狗 猪
+成语中的颜色
+红、橙、黄、绿、青、蓝、紫、黑、白、灰
+成语故事大全
+第1页 第2页 第3页 第4页 第5页 第6页 第7页
+其它特殊成语
+·最长的成语接龙 ·含有反义词的成语 ·成语点击倒数排行
+ 
+特殊成语
+·ABAC式的词语 ·AABC式的词语 ·AABB式的词语 ·ABCC式的词语 
+·第一个字与最后一个字相同 ·ABB式的词语 ·含有近义词的成语 
+·第二个字与第四个字相同的成语 ·第三个字与第四个字相同的成语
+非四字成语
+·三个字的成语 ·五个字的成语 ·六个字的成语 ·七个字的成语 ·八个字的成语 ·有上下句的成语
+描写季节的成语
+描写秋天的成语 春天 夏天 冬天 季节 四季
+描写心情的成语
+高兴 兴奋 愉快 笑 哭 怒 悲伤 伤心 哭泣 发呆 生气 泪 心情
+描写天气的成语
+寒冷 温暖 酷热 干旱 大雨 冰 热 冷 火 水 风 雨 雷 电 天气
+描写人物的成语
+神态 动作 外貌 品质 心理 说话
+出自名人的成语
+李白 杜甫 墨子 韩愈 司马迁 李商隐
+出自名著的成语
+三国演义 西游记 水浒 红楼梦 诗经 老子 庄子 孟子 三国志 左传 醒世恒言 史记
+按第1个字分组排行	按第2个字分组排行	按第3个字分组排行	按第4个字分组排行
+不一大无天风三人心以如百有自金千高安	不人心头风天然无山而言之中口马如手行	不之无一而如相为大自其成有人可万天千	人心地天下生行言水道色子日事山之马雨
+网速测试 火车时刻表 动车 ASP探针 PHP探针 自助友情链接 网站排行榜 链接请联系：85586009
+T086 ChengYu Dictionary 
+© 2002-2019 IT学习网 Enjoy
+
+首页 - 手机APP下载 - 资料 - 查词 可可推出小学英语课本点读APP，欢迎下载
+登录 | 注册
+听力提升
+英语听力
+听写训练
+迷你新闻
+经济学人
+广播
+VOA慢
+VOA常
+Time
+CNN
+NPR
+FOX
+PBS
+口语提升
+英语口语
+情景会话
+背句子
+口语秀
+能力提升
+练听力
+背单词
+天天练
+改作文
+双语阅读
+影视英语
+英文歌曲
+单词|语法
+英语考试
+四级
+六级
+翻译
+考研
+BEC
+专四
+专八
+职称
+SAT
+托福
+雅思
+GRE
+基础
+少儿
+小学
+中考
+高考
+综合
+网址
+查词
+翻译
+下载
+手机APP下载
+		
+ios	android	wp
+阅读
+导航
+经验图文时尚双语职场校园体育科技时事娱乐经济社会故事小说海外电子书
+图文环球之旅 | 大千世界 | 趣图妙语   时尚双语达人 | 他她话题 | 服饰搭配 | 星座英语 | 健康生活 | 美容化妆   小说傲慢与偏见 | 小妇人 | 宠儿   推荐经济学人单词背诵
+
+
+
+您现在的位置： 首页 > 双语阅读 > 故事小说 > 双语散文 > 正文
+
+爱情不是商品 Love Is Not Like Merchandise
+时间:2014-12-31 10:36:23 来源:可可英语 编辑:shaun ﻿  VIP免费外教试听课 |  可可官方微信:ikekenet 
+字号：大 | 中 | 小 [网页划词已开启]  评论  打印 收藏本文
+英中对照
+中英对照
+英文在前
+中文在前
+只看英文
+只看中文
+A reader in Florida, apparently bruised by some personal experience, writes in to complain, “If I steal a nickel’s worth of merchandise, I am a thief and punished; but if I steal the love of another’s wife, I am free.”
+
+佛罗里达州的一位读者显然是在个人经历上受过创伤, 他写信来抱怨道: “如果我偷走了五分钱的商品, 我就是个贼, 要受到惩罚, 但是如果我偷走了他人妻子的爱情, 我没事儿。”
+Love Is Not Like Merchandise 爱情不是商品.png
+
+This is a prevalent misconception in many people’s minds—that love, like merchandise, can be “stolen”. Numerous states, in fact, have enacted laws allowing damages for “alienation of affections”.
+
+这是许多人心目中普遍存在的一种错误观念——爱情, 像商品一样, 可以 “偷走”。实际上，许多州都颁布法令，允许索取“情感转让”赔偿金。
+But love is not a commodity; the real thing cannot be bought, sold, traded or stolen. It is an act of the will, a turning of the emotions, a change in the climate of the personality.
+但是爱情并不是商品；真情实意不可能买到，卖掉，交换，或者偷走。爱情是志愿的行动，是感情的转向，是个性发挥上的变化。
+When a husband or wife is “stolen” by another person, that husband or wife was already ripe for the stealing, was already predisposed toward a new partner. The “love bandit” was only taking what was waiting to be taken, what wanted to be taken.
+当丈夫或妻子被另一个人“偷走”时，那个丈夫或妻子就已经具备了被偷走的条件，事先已经准备接受新的伴侣了。这位“爱匪”不过是取走等人取走、盼人取走的东西。
+We tend to treat persons like goods. We even speak of the children “belonging” to their parents. But nobody “belongs” to anyone else. Each person belongs to himself, and to God. Children are entrusted to their parents, and if their parents do not treat them properly, the state has a right to remove them from their parents’ trusteeship.
+我们往往待人如物。我们甚至说孩子“属于”父母。但是谁也不“属于”谁。人都属于自己和上帝。孩子是托付给父母的，如果父母不善待他们，州政府就有权取消父母对他们的托管身份。
+Most of us, when young, had the experience of a sweetheart being taken from us by somebody more attractive and more appealing. At the time, we may have resented this intruder—but as we grew older, we recognized that the sweetheart had never been ours to begin with. It was not the intruder that “caused” the break, but the lack of a real relationship.
+我们多数人年轻时都有过恋人被某个更有诱惑力、更有吸引力的人夺去的经历。在当时，我们兴许怨恨这位不速之客—但是后来长大了，也就认识到了心上人本来就不属于我们。并不是不速之客“导致了”决裂，而是缺乏真实的关系。
+On the surface, many marriages seem to break up because of a “third party”. This is, however, a psychological illusion. The other woman or the other man merely serves as a pretext for dissolving a marriage that had already lost its essential integrity.
+从表面上看，许多婚姻似乎是因为有了“第三者”才破裂的。然而这是一种心理上的幻觉。另外那个女人，或者另外那个男人，无非是作为借口，用来解除早就不是完好无损的婚姻罢了。
+Nothing is more futile and more self-defeating than the bitterness of spurned love, the vengeful feeling that someone else has “come between” oneself and a beloved. This is always a distortion of reality, for people are not the captives or victims of others—they are free agents, working out their own destinies for good or for ill.
+因失恋而痛苦，因别人“插足”于自己与心上人之间而图报复，是最没有出息、最自作自受的乐。这种事总是歪曲了事实真相，因为谁都不是给别人当俘虏或牺牲品——人都是自由行事的，不论命运是好是坏，都由自己来作主。
+But the rejected lover or mate cannot afford to believe that his beloved has freely turned away from him— and so he ascribes sinister or magical properties to the interloper. He calls him a hypnotist or a thief or a home-breaker. In the vast majority of cases, however, when a home is broken, the breaking has begun long before any “third party” has appeared on the scene.
+但是，遭离弃的情人或配偶无法相信她的心上人是自由地背离他的——因而他归咎于插足者心术不正或迷人有招。他把他叫做催眠师、窃贼或破坏家庭的人。然而，从大多数事例看，一个家的破裂，是早在什么“第三者”出现之前就开始了的。
+  查看《双语散文》更多内容>>
+保存到QQ日志   登录QQ空间
+重点单词	 	查看全部解释	 	 
+ alienation	[.eiljə'neiʃən]	
+想一想再看	 	
+ magical	['mædʒikəl]	
+想一想再看	 	
+ partner	['pɑ:tnə]	
+想一想再看	联想记忆	
+ merchandise	['mə:tʃəndaiz]	
+想一想再看	联想记忆	
+ remove	[ri'mu:v]	
+想一想再看	联想记忆	
+ bruised		
+想一想再看	 	
+ mate	[meit]	
+想一想再看	 	
+ complain	[kəm'plein]	
+想一想再看	 	
+ misconception	['miskən'sepʃən]	
+想一想再看	联想记忆	
+ tend	[tend]	
+想一想再看	 	﻿
+
+阅读本文的人还阅读了：
+拖船的哲理 Philosophy from a Tugboat 2013-12-31
+双语美文赏析:真爱的含义 2014-01-02
+散文赏析:You Light up My Life! 是你 点燃了我的生命! 2014-03-28
+拉尔夫.里士满 第二次生命的启示 2014-08-04
+大千世界:鼠尾草,你是我最好的舞伴! 2014-09-15
+关键字： 双语新闻 新闻报道 爱情
+上一篇：大千世界:鼠尾草,你是我最好的舞伴!
+发布评论我来说2句
+ 
+
+
+最新文章
+可可英语官方微信(微信号:ikekenet)
+每天向大家推送短小精悍的英语学习资料.
+
+添加方式1.扫描上方可可官方微信二维码。
+添加方式2.搜索微信号ikekenet添加即可。
+
+       我们也在这里：  
+
+可可节目精选Xue.kekenet.com
+人群
+小学生
+中学生
+大学生
+留学生
+上班族
+专业人士
+零基础
+格式
+视频
+资讯
+Flash
+字幕
+MP3
+双语
+主题
+单词(37)
+发音(10)
+语法(7)
+名著(15)
+故事(12)
+旅游(6)
+求职(12)
+公开课(17)
+俚语(9)
+美文
+演讲
+翻译
+趣味娱乐(38)
+有声读物(14)
+媒体报道(88)
+电影(29)
+美剧(30)
+音乐
+听力
+高级
+初级
+中级
+口语
+情景会话
+入门口语
+职场口语
+商务口语
+实战口语
+面试口语
+品牌
+剑桥雅思
+新概念
+PBS
+CRI
+科学美国人
+走遍美国
+新东方
+赖世雄
+可可出品
+BBC
+VOA
+NPR
+APnews
+CNN
+李阳
+经典
+教材
+少儿(20)
+小学(31)
+初中(49)
+高中(11)
+大学(29)
+研究生(0)
+考试
+专四(16)
+六级(20)
+四级(43)
+高考(23)
+中考(30)
+专八(1)
+GRE(8)
+雅思(7)
+口译笔译(5)
+BEC(9)
+托福(15)
+应用
+查词
+背单词
+听写训练
+口语秀
+写作
+每日英语
+iphone版
+安卓版
+
+关于本站 - 联系我们 - 人才招聘 - 可可YY课堂 - 免责条款 - 意见反馈 - 网站导航 - 设为首页 - 加入收藏
+
+Copyright @ 2005-2014 www.kekenet.com online services.
+
+All rights reserved.
+
+京ICP备11028623号  京公网安备11010802011079号	 
+
+APP
+建议
+订阅
+   站长统计  安全联盟认证
+可可英语官方微信
+
+微信扫一扫
+获取精彩英语节目
+可可英语APP
+
+扫一扫 下载我
+
+首页 - 手机APP下载 - 资料 - 查词 可可推出小学英语课本点读APP，欢迎下载
+登录 | 注册
+听力提升
+英语听力
+听写训练
+迷你新闻
+经济学人
+广播
+VOA慢
+VOA常
+Time
+CNN
+NPR
+FOX
+PBS
+口语提升
+英语口语
+情景会话
+背句子
+口语秀
+能力提升
+练听力
+背单词
+天天练
+改作文
+双语阅读
+影视英语
+英文歌曲
+单词|语法
+英语考试
+四级
+六级
+翻译
+考研
+BEC
+专四
+专八
+职称
+SAT
+托福
+雅思
+GRE
+基础
+少儿
+小学
+中考
+高考
+综合
+网址
+查词
+翻译
+下载
+手机APP下载
+		
+ios	android	wp
+阅读
+导航
+经验图文时尚双语职场校园体育科技时事娱乐经济社会故事小说海外电子书
+图文环球之旅 | 大千世界 | 趣图妙语   时尚双语达人 | 他她话题 | 服饰搭配 | 星座英语 | 健康生活 | 美容化妆   小说傲慢与偏见 | 小妇人 | 宠儿   推荐经济学人单词背诵
+
+
+
+您现在的位置： 首页 > 双语阅读 > 故事小说 > 双语散文 > 正文
+
+唤醒自己的生活 重燃生活的热情
+时间:2013-09-30 13:31:27 来源:原版英语 编辑:shaun ﻿  VIP免费外教试听课 |  可可官方微信:ikekenet 
+字号：大 | 中 | 小 [网页划词已开启]  评论  打印 收藏本文
+英中对照
+中英对照
+英文在前
+中文在前
+只看英文
+只看中文
+ 12615429954217_副本.jpg
+
+Years ago, when I started looking for my first job, wise advisers urged, "Barbara, be enthusiastic! Enthusiasm will take you further than any amount of experience."How right they were. Enthusiastic people can turn a boring drive into an adventure, extra work into opportunity and strangers into friends.
+
+多年前， 当我第一次找工作时， 不少明智之士强烈向我建议：“巴巴拉，要有热情！热情比任何经验都更有益。”这话多么正确，热情的人可以把沉闷的车程变成探险， 把加班变成机会， 把生人变成朋友。
+"Nothing great was ever achieved without enthusiasm," wrote Ralph Waldo Emerson. It is the paste that helps you hang in there when the going gets tough. It is the inner voice that whispers, "I can do it!" when others shout, "No, you can't."
+“没有热情就不会有任何伟大的成就，” 拉尔夫-沃尔多-爱默生写道当事情进展不顺时，热情是帮助你坚持下去的粘合剂当别人叫喊“你不行”时， 热情是你内心发出的声音：“我能行”。
+It took years and years for the early work of Barbara McClintock, a geneticist who won the 1983 Nobel Prize in medicine, to be generally accepted. Yet she didn't let up on her experiments. Work was such a deep pleasure for her that she never thought of stopping.
+1983年诺贝尔医学奖的获得者遗传学家巴巴拉-麦克林托克早年的工作直到很多年后才被公众所承认但她并没有放弃实验工作对她来说是一种如此巨大的快乐， 她从未想过要停止它。
+We are all born with wide-eyed, enthusiastic wonder as anyone knows who has ever seen an infant's delight at the jingle of keys or the scurrying of a beetle.It is this childlike wonder that gives enthusiastic people such a youthful air, whatever their age.
+我们都生来好奇, 睁大眼睛，满怀热情——每一个看到过婴儿听到钥匙声或看见乱爬的甲虫就兴奋不已的人都会明白这一点。
+At 90, cellist Pablo Casals would start his day by playing Bach. As the music flowed through his fingers, his stooped shoulders would straighten and joy would reappear in his eyes. Music, for Casals, was an elixir that made life a never ending adventure. As author and poet Samuel Ullman once wrote, "Years wrinkle the skin, but to give up enthusiasm wrinkles the soul."
+正是这种孩子气的好奇给了热情的人们（不论年龄大小） 一种青春的气息大提琴家帕布罗-卡萨尔斯在90岁时还坚持以拉巴赫开始他的每一天音乐从他的指间流出， 他弯着的背挺直起来， 欢乐再度溢满他的眼眸音乐对卡萨尔斯来说, 是使人生变成无止境的探索之旅的灵丹妙药就像作家兼诗人塞缪尔-厄尔曼曾写过的：“岁月使皮肤起了皱纹， 但如果失去热情， 便会使灵魂起皱纹”。
+How do you rediscover the enthusiasm of your childhood? The answer, I believe, lies in the word itself. "Enthusiasm" comes from the Greek and means "God within." And what is God within is but an abiding sense of love -- proper love of self (self-acceptance) and, from that, love of others.
+怎样才能找回孩提时代的热情呢？我相信答案就在“热情”这个词本身“热情”一词源于希腊语， 原意是“内在的上帝”这里所说的“内在的上帝”不是别的, 而是一种持久不变的爱——恰当的自爱（自我接受）， 并推而及于他人。
+Enthusiastic people also love what they do, regardless of money or title or power. If we cannot do what we love as a full-time career, we can as a part-time avocation, like the head of state who paints, the nun who runs marathons, the executive who handcrafts furniture.
+热情的人们同样热爱他们所做的事，而不是考虑钱位权如果我们不能把热爱的事作为正式职业， 我们也可把它当作业余消遣：比如有国家元首喜欢画画的， 有修女参加马拉松长跑的， 有行政官员手工制作家具的。
+Elizabeth Layton of Wellsville, Kan, was 68 before she began to draw. This activity ended bouts of depression that had plagued her for at least 30 years, and the quality of her work led one critic to say, "I am tempted to call Layton a genius." Elizabeth has rediscovered her enthusiasm.
+堪萨斯州韦尔斯维尔市的伊丽莎白-莱顿到68岁才开始画画这一爱好消除了曾纠缠她至少达30年之久的忧郁症而她的作品水准之高使得一个评论家说：“我忍不住要称莱顿为天才”伊丽莎白又找回了她的热情。
+We can't afford to waste tears on "might-have-beens." We need to turn the tears into sweat as we go after "what-can-be."
+我们不应该把眼泪浪费在“早该”之类的后悔上我们需要把眼泪化为汗水，去追求“可能”之物。
+We need to live each moment wholeheartedly, with all our senses -- finding pleasure in the fragrance of a back-yard garden, the crayoned picture of a six-year-old, the enchanting beauty of a rainbow. It is such enthusiastic love of life that puts a sparkle in our eyes, a lilt in our steps and smooths the wrinkles from our souls.
+我们需要以全副身心去度过生命中的每一分钟——在后花园的芬芳中在6岁小孩的蜡笔画中在彩虹醉人的美中找到快乐正是这种对生活的热爱， 让我们双目有神，让我们步履矫健，让我们灵魂的皱纹展平。
+  查看《双语散文》更多内容>>
+保存到QQ日志   登录QQ空间
+重点单词	 	查看全部解释	 	 
+ sweat	[swet]	
+想一想再看	 	
+ fragrance	['freigrəns]	
+想一想再看	 	
+ enthusiastic	[in.θju:zi'æstik]	
+想一想再看	 	
+ delight	[di'lait]	
+想一想再看	 	
+ adventure	[əd'ventʃə]	
+想一想再看	联想记忆	
+ boring	['bɔ:riŋ]	
+想一想再看	 	
+ executive	[ig'zekjutiv]	
+想一想再看	 	
+ opportunity	[.ɔpə'tju:niti]	
+想一想再看	 	
+ rediscover	[.ri:dis'kʌvə]	
+想一想再看	 	
+ geneticist	[dʒi'netisist]	
+想一想再看	 	﻿
+
+阅读本文的人还阅读了：
+哲理美文欣赏:去经历去体验 做最好最真实的自己 2013-06-19
+哲理美文欣赏:怎样脱解尴尬 做一个健谈的人 2013-06-28
+2岁女孩可爱告白 你是最好的妈咪 2013-10-14
+拖船的哲理 Philosophy from a Tugboat 2013-12-31
+双语美文赏析:真爱的含义 2014-01-02
+关键字： 热情 生活 唤醒 美文 哲理
+上一篇：哲理美文欣赏:怎样脱解尴尬 做一个健谈的人下一篇：2岁女孩可爱告白 你是最好的妈咪
+发布评论我来说2句
+ 
+
+
+最新文章
+可可英语官方微信(微信号:ikekenet)
+每天向大家推送短小精悍的英语学习资料.
+
+添加方式1.扫描上方可可官方微信二维码。
+添加方式2.搜索微信号ikekenet添加即可。
+
+       我们也在这里：  
+
+可可节目精选Xue.kekenet.com
+人群
+小学生
+中学生
+大学生
+留学生
+上班族
+专业人士
+零基础
+格式
+视频
+资讯
+Flash
+字幕
+MP3
+双语
+主题
+单词(37)
+发音(10)
+语法(7)
+名著(15)
+故事(12)
+旅游(6)
+求职(12)
+公开课(17)
+俚语(9)
+美文
+演讲
+翻译
+趣味娱乐(38)
+有声读物(14)
+媒体报道(88)
+电影(29)
+美剧(30)
+音乐
+听力
+高级
+初级
+中级
+口语
+情景会话
+入门口语
+职场口语
+商务口语
+实战口语
+面试口语
+品牌
+剑桥雅思
+新概念
+PBS
+CRI
+科学美国人
+走遍美国
+新东方
+赖世雄
+可可出品
+BBC
+VOA
+NPR
+APnews
+CNN
+李阳
+经典
+教材
+少儿(20)
+小学(31)
+初中(49)
+高中(11)
+大学(29)
+研究生(0)
+考试
+专四(16)
+六级(20)
+四级(43)
+高考(23)
+中考(30)
+专八(1)
+GRE(8)
+雅思(7)
+口译笔译(5)
+BEC(9)
+托福(15)
+应用
+查词
+背单词
+听写训练
+口语秀
+写作
+每日英语
+iphone版
+安卓版
+
+关于本站 - 联系我们 - 人才招聘 - 可可YY课堂 - 免责条款 - 意见反馈 - 网站导航 - 设为首页 - 加入收藏
+
+Copyright @ 2005-2014 www.kekenet.com online services.
+
+All rights reserved.
+
+京ICP备11028623号  京公网安备11010802011079号	 
+
+APP
+建议
+订阅
+   站长统计  安全联盟认证
+可可英语官方微信
+
+微信扫一扫
+获取精彩英语节目
+可可英语APP
+
+扫一扫 下载我

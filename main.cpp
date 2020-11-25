@@ -1,7 +1,7 @@
 
 //Author: tangmengjin
 //Date: 2020-11-24 14:10:40
-//LastEditTime: 2020-11-25 10:04:51
+//LastEditTime: 2020-11-25 10:08:53
 //LastEditors: tangmengjin
 //Description:
 //FilePath: /multi-pattern-match/main.cpp
@@ -188,19 +188,19 @@ void analyzeResult(string resultFile, string patternFile,
 
 int main(int argc, char *argv[])
 {
-    //测试英文
-    string test1File = BIBLE1;
-    string pattern1File = PATTERN1;
-    string result1File = RESULT1;
-    //wu_manber
     map<string, int> result_wumanber;
-    bench_wu_manber(test1File, pattern1File, result_wumanber);
-
-    //aho_corasick
     map<string, int> result_aho;
-    bench_aho_corasick(test1File, pattern1File, result_aho);
+    //测试英文
+    // string test1File = BIBLE1;
+    // string pattern1File = PATTERN1;
+    // string result1File = RESULT1;
+    // //wu_manber
+    // bench_wu_manber(test1File, pattern1File, result_wumanber);
 
-    analyzeResult(RESULT1, pattern1File, result_wumanber, result_aho);
+    // //aho_corasick
+    // bench_aho_corasick(test1File, pattern1File, result_aho);
+
+    // analyzeResult(RESULT1, pattern1File, result_wumanber, result_aho);
 
     //测试中英文
     string test2File = BIBLE2;

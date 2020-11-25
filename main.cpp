@@ -1,7 +1,7 @@
 
 //Author: tangmengjin
 //Date: 2020-11-24 14:10:40
-//LastEditTime: 2020-11-25 15:19:16
+//LastEditTime: 2020-11-25 16:05:02
 //LastEditors: tangmengjin
 //Description:
 //FilePath: /multi-pattern-match/main.cpp
@@ -180,7 +180,7 @@ void analyzeResult(string resultFile, string patternFile,
             }
             else
             {
-                outFile << line << "\t" << resultWumanber[line] << "\t" << resultAho[line] << "\tunmacth\n";
+                outFile << line << "\t" << resultWumanber[line] << "\t" << resultAho[line] << "\unmatch\n";
             }
         }
         else
@@ -201,12 +201,12 @@ int main(int argc, char *argv[])
     string pattern1File = PATTERN1;
     string result1File = RESULT1;
     //wu_manber
-    // bench_wu_manber(test1File, pattern1File, result_wumanber);
+    bench_wu_manber(test1File, pattern1File, result_wumanber);
 
-    // //aho_corasick
-    // bench_aho_corasick(test1File, pattern1File, result_aho);
+    //aho_corasick
+    bench_aho_corasick(test1File, pattern1File, result_aho);
 
-    // analyzeResult(result1File, pattern1File, result_wumanber, result_aho);
+    analyzeResult(result1File, pattern1File, result_wumanber, result_aho);
 
     //测试中英文
     string test2File = BIBLE2;

@@ -600,8 +600,13 @@ namespace aho_corasick
 			emit_collection remove_emits;
 			for (const auto &e : collected_emits)
 			{
-				if ((e.get_start() == 0 || !std::isalpha(search_text.at(e.get_start() - 1))) &&
-					(e.get_end() + 1 == size || !std::isalpha(search_text.at(e.get_end() + 1))))
+				// 中文开头，无需全字匹配
+				if (search_text.at(e.get_start()) < 0)
+				{
+					continue;
+				}
+				if ((e.get_start() == 0 || (!std::isalpha(search_text.at(e.get_start() - 1)) && '_' != (char)search_text.at(e.get_start() - 1))) &&
+					(e.get_end() + 1 == size || (!std::isalpha(search_text.at(e.get_end() + 1)) && '_' != (char)search_text.at(e.get_end() + 1))))
 				{
 					continue;
 				}

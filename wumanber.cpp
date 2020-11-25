@@ -208,10 +208,13 @@ int WuManber::Search(const char *text, const int textLength, ResultSetType &res)
                     if ('\0' == *indexPattern)
                     {
                         string temp = string(mPatterns[iter->second]);
-                        if (bWholeWord)
+                        // temp[0] < 0(中文开始的字符串，不考虑全字匹配)
+                        if (bWholeWord && temp[0] > 0)
                         {
-                            if ((index - windowMaxIndex == 0 || !std::isalpha(text[index - windowMaxIndex - 1])) &&
-                                (temp.length() == textLength || !std::isalpha(text[index - windowMaxIndex + temp.length()])))
+                            if ((index - windowMaxIndex == 0 ||
+                                 (!std::isalpha(text[index - windowMaxIndex - 1]) && '_' != text[index - windowMaxIndex - 1])) &&
+                                (index + temp.length() == textLength ||
+                                 (!std::isalpha(text[index - windowMaxIndex + temp.length()]) && '_' != text[index - windowMaxIndex - 1])))
                             {
                                 res.push_back(temp);
                                 ++hits;

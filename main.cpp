@@ -1,7 +1,7 @@
 
 //Author: tangmengjin
 //Date: 2020-11-24 14:10:40
-//LastEditTime: 2020-11-25 11:38:05
+//LastEditTime: 2020-11-25 15:14:51
 //LastEditors: tangmengjin
 //Description:
 //FilePath: /multi-pattern-match/main.cpp
@@ -29,14 +29,12 @@ void bench_aho_corasick(string textFile, string patternFile, map<string, int> &r
 {
     fstream f_bible(textFile);
     string line;
-    set<string> input_strings;
+    vector<string> input_vector;
     while (getline(f_bible, line))
     {
-        input_strings.insert(line);
+        input_vector.push_back(line);
     }
     f_bible.close();
-
-    vector<string> input_vector(input_strings.begin(), input_strings.end());
 
     set<string> patterns_aho_corasick;
     fstream f_dict(patternFile);
@@ -176,11 +174,18 @@ void analyzeResult(string resultFile, string patternFile,
         transform(line.begin(), line.end(), line.begin(), ::tolower);
         if (resultWumanber.find(line) != resultWumanber.end())
         {
-            outFile << line << "\t" << resultWumanber[line] << "\t" << resultWumanber[line] << "\n";
+            if (resultWumanber[line] == resultAho[line])
+            {
+                outFile << line << "\t" << resultWumanber[line] << "\t" << resultAho[line] << "\n";
+            }
+            else
+            {
+                outFile << line << "\t" << resultWumanber[line] << "\t" << resultAho[line] << "\tunmacth\n";
+            }
         }
         else
         {
-            outFile << line << "\t" << 0 << "\t" << 0 << "\n";
+            outFile << line << "\t" << 0 << "\t" << 0 << "\terror\n";
         }
     }
     outFile.close();
@@ -196,12 +201,12 @@ int main(int argc, char *argv[])
     string pattern1File = PATTERN1;
     string result1File = RESULT1;
     //wu_manber
-    bench_wu_manber(test1File, pattern1File, result_wumanber);
+    // bench_wu_manber(test1File, pattern1File, result_wumanber);
 
-    //aho_corasick
-    bench_aho_corasick(test1File, pattern1File, result_aho);
+    // //aho_corasick
+    // bench_aho_corasick(test1File, pattern1File, result_aho);
 
-    analyzeResult(result1File, pattern1File, result_wumanber, result_aho);
+    // analyzeResult(result1File, pattern1File, result_wumanber, result_aho);
 
     //测试中英文
     string test2File = BIBLE2;

@@ -210,11 +210,8 @@ int WuManber::Search(const char *text, const int textLength, ResultSetType &res)
                         string temp = string(mPatterns[iter->second]);
                         if (bWholeWord)
                         {
-                            int tempLenth = temp.length();
-                            char c1 = text[index - 1];
-                            char c2 = text[index + tempLenth - 1];
-                            if ((index == 1 || !std::isalpha(text[index - 2])) &&
-                                (temp.length() == textLength || !std::isalpha(text[index + temp.length() - 1])))
+                            if ((index - windowMaxIndex == 0 || !std::isalpha(text[index - windowMaxIndex - 1])) &&
+                                (temp.length() == textLength || !std::isalpha(text[index - windowMaxIndex + temp.length()])))
                             {
                                 res.push_back(temp);
                                 ++hits;

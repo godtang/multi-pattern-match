@@ -1,7 +1,7 @@
 
 //Author: tangmengjin
 //Date: 2020-11-24 14:10:40
-//LastEditTime: 2020-11-25 15:14:51
+//LastEditTime: 2020-11-25 15:19:16
 //LastEditors: tangmengjin
 //Description:
 //FilePath: /multi-pattern-match/main.cpp
@@ -185,7 +185,7 @@ void analyzeResult(string resultFile, string patternFile,
         }
         else
         {
-            outFile << line << "\t" << 0 << "\t" << 0 << "\terror\n";
+            outFile << line << "\t" << 0 << "\t" << 0 << "\t not find\n";
         }
     }
     outFile.close();

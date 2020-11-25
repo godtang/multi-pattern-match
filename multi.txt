@@ -1,0 +1,210 @@
+CSDN首页
+博客
+学院
+下载
+论坛
+问答
+代码
+招聘
+电子书
+VIP会员 
+创作中心
+收藏
+消息
+登录/注册
+c++ 中定义常量的两种方法
+从小白做起 2018-08-03 11:07:33   27156   收藏 4
+分类专栏： c++
+版权
+c++中定义常量有两种方法：
+1.使用#define预处理器
+#define SCREEN_HEIGHT 640
+2.使用const关键字
+const int SCREEN_WIDTH 960;
+所谓常量，即在程序执行期间不会改变的变量，常量可以是任意类型的变量，只不过在定义之后值不可修改，下面测试一下常量在程序中的应用。
+正常情况：
+#include <iostream>
+using namespace std;
+#define MY_TEST 10
+int main(){
+    const int HEIGHT = 10;
+    cout <<"testConst====="<< HEIGHT<<"\n";
+    cout <<"testDefine====="<< MY_TEST<<"\n";
+    return 0;
+}
+测试结果：
+testConst=====10
+testDefine=====10
+异常情况：
+#include <iostream>
+using namespace std;
+#define MY_TEST 10
+int main(){
+    const int HEIGHT = 10;
+    MY_TEST = 20;
+    cout <<"testConst====="<< HEIGHT<<"\n";
+    cout <<"testDefine====="<< MY_TEST<<"\n";
+    return 0;
+}
+测试结果：
+test.cpp:6:13: error: expression is not assignable（表达式不匹配）
+    MY_TEST = 20;
+    ~~~~~~~ ^
+1 error generated.
+看被标注为红色的代码，试图改变常量的值，编译时直接报错，const定义的常量情况也是一样会报错，
+测试代码：
+#include <iostream>
+using namespace std;
+#define MY_TEST 10
+int main(){
+    const int HEIGHT = 10;
+//    MY_TEST = 20;
+    HEIGHT = 22；
+    cout <<"testConst====="<< HEIGHT<<"\n";
+    cout <<"testDefine====="<< MY_TEST<<"\n";
+    return 0;
+}
+测试结果：
+test.cpp:5:15: note: variable 'HEIGHT' declared const here（HEIGHT被标记为const类型）
+const int HEIGHT = 10;~~~~~~~~~~^~~~~~~~~~~
+2 errors generated.
+点赞
+3
+评论
+分享
+收藏
+4
+打赏
+举报
+关注
+一键三连
+Q13：C++中常量的定义
+不积跬步无以至千里
+734
+C++中的常量 常量在C++里的定义就是一个top-level const加上对象类型，常量定义必须初始化。 对于局部对象，常量存放在栈区； 对于全局对象，常量存放在全局/静态存储区。 对于字面值常量，比如字符串，常量存放在常量存储区。 ...
+2.2、C++常量
+dapinxiaohuo的专栏
+499
+数值常量 数值常量就是通常所说的常数。在C++中，数值常量是区分类型的，从字面形式即可识别其类型。 整型常量（整数）的类型 在上一节中已知道：整型数据可分为int, short int,long int以及unsigned int, unsigned short, unsigned long等类别。整型常量也分为以上类别。为什么将数值常量区分为不同的类别呢？因为在进行赋值或函数的参数虚实
+ C/C++定义全局变量/常量几种方法的区别
+weixin_30897079的博客
+2526
+在讨论全局变量之前我们先要明白几个基本的概念： 1. 编译单元(模块)： 在IDE开发工具大行其道的今天，对于编译的一些概念很多人已经不再清楚了，很多程序员最怕的就是处理连接错误(LINK ERROR), 因为它不像编译错误那样可以给出你程序错误的具体位置，你常常对这种错误感到懊恼，但是如果你经常使用gcc，makefile等工具在linux或者嵌 入式下做开发工作的话，那么...
+c++ 定义常量的两种方式 和 区别
+共觞的博客
+4288
+使用常量的好处就显而易见，用常量的有下面一些好处： 1：增强程序的可读性。用一个有意义的常量字符串代替一个常数，程序读起来会更加的方便。2：如果很多地方用到像PI（3.14159）这样的常量，可以一改改全局。常量是在程序运行中不能被改变的标识符。 C++中定义常量可以用#define 、const 这两种方法。 例如: #define PRICE 10 //定义单价常量10 const int
+C++:定义常量的方法_咩咩的博客-CSDN博客
+11-20
+在这里插入代码片#include <iostream>using namespace std;//常量的定义方式//1 #define 宏常量 //2 const修饰的变量#define Day 7//注意这里没有分号...
+C/C++定义全局变量/常量几种方法的…_luoage的专栏-CSDN博客
+11-11
+工程中所有的obj文件进行LINK生成最终的.exe文件,那么错 误就有可能在两个地方产生,一个是编译时的错误,这个主要是语法错误,另一个是连接错误,主要是重复定义变量...
+C++ 常量和const
+小白的博客
+9808
+文章概述 C++中的常量 const的说明 const的引用 4. C++中常量 a. 常量: 其值在程序运行的过程中不会发生改变,但是定义常量的时候可以设置初始值。 C++中使用const关键字来定义一个常量。 //a是常量 const int a=10; b. 对于常量,编译器会将其放在一个只读的内存区域,其值不能发生改变。 c. 使用常量的好处就在于灵活,程序中多次用...
+C++ 变量、常量、符号常量
+Stay Hungry
+ 3137
+变量： int i = 0;  // i 是变量 i=5;         //i 可以修改  变量就是程序内一个内存位置的符号名，在该内存位置可以保存数据，并可以通过符号名对该内存地址存放的数据进行访问。 变量的值可以修改，是可变的，但在某个确定的时刻，变量的值是确定的，并一直保持到下次被修改之前。    常量： int a=10;       //a 是变量， 10 是常量...
+C++(二):定义常量两种方式_WellWang_S的博客-CSDN博客
+11-15
+C++定义常量两种方式 #define宏常量:#define 常量名 常量值 通常在文件上方定义,表示一个常量 const修饰的变量const 数据类型 常量名 = 常量值 ...
+C++ 定义常量const_禾雪的博客-CSDN博客
+11-22
+C++ 定义常量const #include <iostream> using namespace std; const double PI=3.1415926;//只能在定义该常量的函数里使用(如在main函数中定义,则在area函数就...
+c++常量和常量表达式
+li_unit的博客
+1592
+const,默认情况下仅在文件内有效 const int i(12); const引用:对常量的引用不能被用作修改它所绑定的对象 const int ci(5); const int &rci(ci); rci = 90;//错误 不能修改 允许常量引用绑定到非常量的对象、字面值或表达式上 int i = 20; const int &ri(20); con...
+C++ 常量定义
+colorsky100的博客
+ 226
+Ubuntu 默认定义在math.h文件当中，只要#include <math.h>就可以使用， 注意仅仅#include <cmath>是仍然不包含这些常量宏定义的。 Windows 默认定义在math.h文件的#include <corecrt_math_defines.h>当中，需要不仅#include <math.h>还需要预先进行宏定义...
+c++定义常量两种方式(#define 和const)_spider_man-CSDN博客
+10-30
+在C++ 中,有两种简单的定义常量的方式: 使用#define预处理器。 使用const关键字。 第一种#define定义 #include<iostream> usingnamespacestd; ...
+C++使用之常量的定义_Just do it-CSDN博客
+10-28
+与使用#define定义常量相比,更可取的办法是使用C++的const限定修饰符来定义常量。例如,对于MAX_NUM_SIZE,可进行如下定义: [cpp]view plaincopy ...
+[c++]在C++中定义常量的两种方法的比较
+weixin_33941350的博客
+ 103
+常量是定以后，在程序运行中不能被改变的标识符。C++中定义常量可以用#define 、const 这两种方法。例如:#define PRICE 10 //定义单价常量10const int PRICE = 10; //定义单价常量10其实用常量是有它的理由的，下面我们来看下面两段程序对比 代码 #include &lt;iostream&gt; using namespace std; ...
+CSDN开发助手，集成开发者常用工具，提升开发效率
+支持本地书签、tab页、历史记录搜索； 集成CSDN搜索结果； 他是一个时间转换工具； 他是一个计算器； 他是。。。，更多功能正在添加中
+C++中如何定义常量_D-wade.陈的博客-CSDN博客
+11-15
+C++中有两种方法定义常量: 常量是在程序执行期间不会改变的变量,常量可以是任意类型的变量,只不过在定义之后值不可修改。 一. 用#define预处理器 ...
+C++使用之常量的定义
+Leo的博客
+1万+
+在介绍C++的常前，先看下下面的代码。 for (int i = 0; i < 512; ++i) { …; } 512是什么，它具有什么含义？在代码中若直接使用类似512这些“魔数”（magic number），这些数字的具体含义就不能体现出来。另外，假如程序中多处包含512这个数，随着时间的推移，发现有些512需要更改为1024，有些512需要保持不变。这种情况下
+©️2020 CSDN 皮肤主题: 大白 设计师:CSDN官方博客 返回首页
+关于我们
+招贤纳士
+广告服务
+开发助手
+400-660-0108
+kefu@csdn.net
+在线客服
+工作时间 8:30-22:00
+公安备案号11010502030143
+京ICP备19004658号
+京网文〔2020〕1039-165号
+经营性网站备案信息
+北京互联网违法和不良信息举报中心
+网络110报警服务
+中国互联网举报中心
+家长监护
+Chrome商店下载
+©1999-2020北京创新乐知网络技术有限公司
+版权与免责声明
+版权申诉
+从小白做起
+码龄8年
+ 暂无认证
+5
+原创
+29万+
+周排名
+28万+
+总排名
+6万+
+访问 
+等级
+284
+积分
+3
+粉丝
+7
+获赞
+0
+评论
+12
+收藏
+勤写标兵Lv1
+私信
+关注
+热门文章
+c++ 中定义常量的两种方法   27094
+python实现替换某个文件中的某个字符串（全部替换）   17586
+利用RenderTexture实现简单残影效果（lua）   1391
+c++全局变量与局部变量初始化情况分析  1259
+利用c++无序映射容器 实现传入不同字符串得到相对应的唯一整型数   242
+分类专栏
+cocos
+1篇
+python
+1篇
+c++
+3篇
+unity
+图片数据分析
+最新文章
+c++全局变量与局部变量初始化情况分析
+利用c++无序映射容器 实现传入不同字符串得到相对应的唯一整型数
+python实现替换某个文件中的某个字符串（全部替换）
+2018年5篇
+举报

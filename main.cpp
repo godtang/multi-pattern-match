@@ -1,7 +1,7 @@
 
 //Author: tangmengjin
 //Date: 2020-11-24 14:10:40
-//LastEditTime: 2020-11-24 20:00:49
+//LastEditTime: 2020-11-25 10:04:51
 //LastEditors: tangmengjin
 //Description:
 //FilePath: /multi-pattern-match/main.cpp
@@ -17,13 +17,17 @@
 #define PATTERN1 "dict.txt"
 #define RESULT1 "result1.txt"
 
+#define BIBLE2 "multi.txt"
+#define PATTERN2 "multi-pattern.txt"
+#define RESULT2 "result2.txt"
+
 using namespace std;
 namespace ac = aho_corasick;
 using trie = ac::trie;
 
-void bench_aho_corasick(map<string, int> &result)
+void bench_aho_corasick(string textFile, string patternFile, map<string, int> &result)
 {
-    fstream f_bible(BIBLE1);
+    fstream f_bible(textFile);
     string line;
     set<string> input_strings;
     while (getline(f_bible, line))
@@ -35,7 +39,7 @@ void bench_aho_corasick(map<string, int> &result)
     vector<string> input_vector(input_strings.begin(), input_strings.end());
 
     set<string> patterns_aho_corasick;
-    fstream f_dict(PATTERN1);
+    fstream f_dict(patternFile);
     while (getline(f_dict, line))
     {
         patterns_aho_corasick.insert(line);
@@ -77,11 +81,11 @@ void bench_aho_corasick(map<string, int> &result)
     return;
 }
 
-void bench_wu_manber(map<string, int> &result)
+void bench_wu_manber(string textFile, string patternFile, map<string, int> &result)
 {
     //step1: init patterns
     vector<string> patterns;
-    ifstream pat(PATTERN1);
+    ifstream pat(patternFile);
     string s;
     while (getline(pat, s))
     {
@@ -94,7 +98,7 @@ void bench_wu_manber(map<string, int> &result)
     wu.Init(patterns);
 
     //step3: find patterns using wumanber in paraell
-    ifstream text(BIBLE1);
+    ifstream text(textFile);
     map<string, int> result_wumanber;
     auto start_time = chrono::high_resolution_clock::now();
     while (getline(text, s))
@@ -123,7 +127,8 @@ void bench_wu_manber(map<string, int> &result)
     result = result_wumanber;
 }
 
-void analyzeResult(map<string, int> resultWumanber, map<string, int> resultAho)
+void analyzeResult(string resultFile, string patternFile,
+                   map<string, int> resultWumanber, map<string, int> resultAho)
 {
     if (resultWumanber.size() != resultAho.size())
     {
@@ -157,8 +162,8 @@ void analyzeResult(map<string, int> resultWumanber, map<string, int> resultAho)
     }
 
     ofstream outFile;
-    outFile.open(RESULT1);
-    fstream f_dict(PATTERN1);
+    outFile.open(resultFile);
+    fstream f_dict(patternFile);
     string line;
     outFile << "keyword"
             << "\t"
@@ -183,15 +188,32 @@ void analyzeResult(map<string, int> resultWumanber, map<string, int> resultAho)
 
 int main(int argc, char *argv[])
 {
-
+    //测试英文
+    string test1File = BIBLE1;
+    string pattern1File = PATTERN1;
+    string result1File = RESULT1;
+    //wu_manber
     map<string, int> result_wumanber;
-    bench_wu_manber(result_wumanber);
+    bench_wu_manber(test1File, pattern1File, result_wumanber);
 
     //aho_corasick
-
     map<string, int> result_aho;
-    bench_aho_corasick(result_aho);
+    bench_aho_corasick(test1File, pattern1File, result_aho);
 
-    analyzeResult(result_wumanber, result_aho);
+    analyzeResult(RESULT1, pattern1File, result_wumanber, result_aho);
+
+    //测试中英文
+    string test2File = BIBLE2;
+    string pattern2File = PATTERN2;
+    string result2File = RESULT2;
+    //wu_manber
+    result_wumanber.clear();
+    bench_wu_manber(test2File, pattern2File, result_wumanber);
+
+    //aho_corasick
+    result_aho.clear();
+    bench_aho_corasick(test2File, pattern2File, result_aho);
+
+    analyzeResult(result2File, pattern2File, result_wumanber, result_aho);
     return 0;
 }

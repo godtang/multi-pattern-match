@@ -1,7 +1,7 @@
 
 //Author: tangmengjin
 //Date: 2020-11-24 14:10:40
-//LastEditTime: 2020-11-25 16:05:02
+//LastEditTime: 2020-11-25 16:07:28
 //LastEditors: tangmengjin
 //Description:
 //FilePath: /multi-pattern-match/main.cpp
@@ -180,7 +180,7 @@ void analyzeResult(string resultFile, string patternFile,
             }
             else
             {
-                outFile << line << "\t" << resultWumanber[line] << "\t" << resultAho[line] << "\unmatch\n";
+                outFile << line << "\t" << resultWumanber[line] << "\t" << resultAho[line] << "\tunmatch\n";
             }
         }
         else

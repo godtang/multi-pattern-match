@@ -120,19 +120,17 @@
     }
     ```
 ## 比较结果
-1. 考题1
-    
-    bible.txt约4M，dict.txt约500K
-    
+1. 考题1    
+    bible.txt约4M，dict.txt约500K    
     结果
+    
     *wumanber cost 19633 ms
     aho_corasick cost 5079 ms*
     
-2. 考题2
-    
-    multi-pattern.txt约490K，multi-pattern.txt约50K
-    
+2. 考题2    
+    multi-pattern.txt约490K，multi-pattern.txt约50K    
     结果
+    
     *wumanber cost 60 ms
     aho_corasick cost 279 ms*
     

@@ -123,15 +123,11 @@
 1. 考题1    
     bible.txt约4M，dict.txt约500K    
     结果    
-    *wumanber cost 19633 ms*
-    
-    *aho_corasick cost 5079 ms*    
+    *wumanber cost 19633 ms<br/>aho_corasick cost 5079 ms*    
 2. 考题2    
     multi-pattern.txt约490K，multi-pattern.txt约50K    
     结果    
-    *wumanber cost 60 ms*
-    
-    *aho_corasick cost 279 ms*    
+    *wumanber cost 60 ms<br/>aho_corasick cost 279 ms*    
 * 可以发现在纯英文和中英文混合的情况下，效率是不一致的
 
 

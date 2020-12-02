@@ -1,7 +1,7 @@
 <!--
  * @Author: tangmengjin
  * @Date: 2020-11-24 14:10:40
- * @LastEditTime: 2020-12-02 20:33:32
+ * @LastEditTime: 2020-12-02 20:36:48
  * @LastEditors: tangmengjin
  * @Description: 
  * @FilePath: /multi-pattern-match/README.md
@@ -87,11 +87,11 @@
     }
     ```
 ## 比较结果
-1. 考题1    
+1. <b>考题1</b>
     bible.txt约4M，dict.txt约500K    
     结果    
     *wu_manber cost 3826 ms<br/>aho_corasick cost 4936 ms*    
-2. 考题2    
+2. <b>考题2</b>
     multi-pattern.txt约490K，multi-pattern.txt约50K    
     结果    
     *wu_manber cost 17 ms<br/>aho_corasick cost 279 ms*    

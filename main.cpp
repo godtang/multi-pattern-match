@@ -1,7 +1,7 @@
 
 //Author: tangmengjin
 //Date: 2020-11-24 14:10:40
-//LastEditTime: 2020-11-25 18:10:41
+//LastEditTime: 2020-12-02 20:22:09
 //LastEditors: tangmengjin
 //Description:
 //FilePath: /multi-pattern-match/main.cpp
@@ -12,6 +12,7 @@
 #include <vector>
 #include "wumanber.h"
 #include "aho_corasick.hpp"
+#include "wu_manber.hpp"
 
 #define BIBLE1 "bible.txt"
 #define PATTERN1 "dict.txt"
@@ -125,6 +126,66 @@ void bench_wu_manber(string textFile, string patternFile, map<string, int> &resu
     result = result_wumanber;
 }
 
+void bench_wu_manber_new(string textFile, string patternFile, map<string, int> &result)
+{
+    // simple driver program for th Wu - Manber algorithm
+    wu_manber::WuManber<char> wuManber;
+    vector<string> patternList;
+    set<string> patternSet;
+    ifstream pat(patternFile);
+    string line;
+    while (getline(pat, line))
+    {
+        transform(line.begin(), line.end(), line.begin(), ::tolower);
+        patternSet.insert(line);
+    }
+    pat.close();
+    for (set<string>::iterator it = patternSet.begin(); it != patternSet.end(); it++)
+    {
+        patternList.push_back(*it);
+    }
+
+    wuManber.preProcess(patternList);
+    ifstream dict(textFile);
+    auto start_time = chrono::high_resolution_clock::now();
+    string s;
+    map<string, int> result_wumanber;
+    while (getline(dict, s))
+    {
+        transform(s.begin(), s.end(), s.begin(), ::tolower);
+        wuManber.scan(s, result_wumanber,
+                      [](const string &text, const string &pattern, size_t indexInPatternList, size_t startIndexInText, map<string, int> &records) {
+                          // 在这里再进行全字匹配
+                          if (text[startIndexInText] != pattern[0] || text[startIndexInText + pattern.length() - 1] != pattern[pattern.length() - 1])
+                          {
+                              return;
+                          }
+                          if (((startIndexInText == 0 ||
+                                !std::isalpha(text[startIndexInText - 1])) &&
+                               (startIndexInText + pattern.length() == text.length() ||
+                                !std::isalpha(text[startIndexInText + pattern.length()]))) ||
+                              text[startIndexInText] < 0)
+                          {
+                              string temp = pattern;
+                              transform(temp.begin(), temp.end(), temp.begin(), ::tolower);
+                              if (records.find(temp) != records.end())
+                              {
+                                  records[temp] = records[temp] + 1;
+                              }
+                              else
+                              {
+                                  records[temp] = 1;
+                              }
+                          }
+                      });
+    }
+    auto end_time = chrono::high_resolution_clock::now();
+    cout << "bench_wu_manber_new size=" << result_wumanber.size() << ",cost "
+         << chrono::duration_cast<chrono::milliseconds>(end_time - start_time).count() << " ms"
+         << endl;
+    result = result_wumanber;
+}
+
 void analyzeResult(string resultFile, string patternFile,
                    map<string, int> resultWumanber, map<string, int> resultAho)
 {
@@ -132,7 +193,7 @@ void analyzeResult(string resultFile, string patternFile,
     {
         map<string, int> resultBig;
         map<string, int> resultSmall;
-        if (resultWumanber.size() < resultAho.size())
+        if (resultWumanber.size() > resultAho.size())
         {
             resultBig = resultWumanber;
             resultSmall = resultAho;
@@ -157,6 +218,7 @@ void analyzeResult(string resultFile, string patternFile,
                 }
             }
         }
+        return;
     }
 
     ofstream outFile;
@@ -202,7 +264,7 @@ int main(int argc, char *argv[])
     string pattern1File = PATTERN1;
     string result1File = RESULT1;
     //wu_manber
-    bench_wu_manber(test1File, pattern1File, result_wumanber);
+    bench_wu_manber_new(test1File, pattern1File, result_wumanber);
 
     //aho_corasick
     bench_aho_corasick(test1File, pattern1File, result_aho);
@@ -215,7 +277,7 @@ int main(int argc, char *argv[])
     string result2File = RESULT2;
     //wu_manber
     result_wumanber.clear();
-    bench_wu_manber(test2File, pattern2File, result_wumanber);
+    bench_wu_manber_new(test2File, pattern2File, result_wumanber);
 
     //aho_corasick
     result_aho.clear();

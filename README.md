@@ -1,7 +1,7 @@
 <!--
  * @Author: tangmengjin
  * @Date: 2020-11-24 14:10:40
- * @LastEditTime: 2020-11-25 18:14:28
+ * @LastEditTime: 2020-12-02 20:33:32
  * @LastEditors: tangmengjin
  * @Description: 
  * @FilePath: /multi-pattern-match/README.md
@@ -18,84 +18,51 @@
 ## 代码说明
 ### 源代码
 1. 作业代码和数据保存于[https://github.com/godtang/multi-pattern-match](https://github.com/godtang/multi-pattern-match)
-2. wu-manber算法来自[https://github.com/BrtTotty/wu-manber-algorithm-for-chinese](https://github.com/BrtTotty/wu-manber-algorithm-for-chinese)
+2. wu-manber算法来自[https://github.com/bubiche/wu_manber](https://github.com/bubiche/wu_manber)
 3. aho-corasick算法来自[https://github.com/cjgdev/aho_corasick](https://github.com/cjgdev/aho_corasick)
 ### 修改
 <font color=abcdef size=3>仅说明算法相关的修改</font>
 1. wu-manber
-    * 修改“_”连接符
     * 中文处理
     * 忽略大小写
     * 全字匹配
 
     ```
-    -bool WuManber::Init(const vector<string> &patterns)
-    +bool WuManber::Init(vector<string> &patterns)
-    {
-     int patternSize = patterns.size();
- 
-    @@ -45,6 +47,36 @@ bool WuManber::Init(const vector<string> &patterns)
-         return false;
-     }
- 
-    +    // 大小写不敏感，英文字母全部转小写
-    +    vector<string> tempPatterns;
-    +    if (!bCaseSensitivity)
-    +    {
-    +        for (vector<string>::iterator it = patterns.begin(); it != patterns.end(); it++)
-    +        {
-    +            string temp = *it;
-    +            transform(temp.begin(), temp.end(), temp.begin(), ::tolower);
-    +            tempPatterns.push_back(temp);
-    +        }
-    +        patterns = tempPatterns;
-    +    }
-    +    else
-    +    {
-    +        tempPatterns = patterns;
-    +    }
-    +
-    +    // 通过set去重
-    +    patterns.clear();
-    +    set<string> tempSet;
-    +    for (vector<string>::iterator it = tempPatterns.begin(); it != tempPatterns.end(); it++)
-    +    {
-    +        tempSet.insert(*it);
-    +    }
-    +    for (set<string>::iterator it = tempSet.begin(); it != tempSet.end(); it++)
-    +    {
-    +        patterns.push_back(*it);
-    +    }
-    +    patternSize = patterns.size();
-    +
-                        // match succeed since we reach the end of the pattern.
-                        if ('\0' == *indexPattern)
-                        {
-    -                        string tempPattern = mPatterns[iter->second];
-    -                        char start = text[index - windowMaxIndex - 1];
-    -                        char end = text[index - windowMaxIndex + tempPattern.length()];
-    -                        res.insert(tempPattern);
-    -                        ++hits;
-    +                        string temp = string(mPatterns[iter->second]);
-    +                        // temp[0] < 0(中文开始的字符串，不考虑全字匹配)
-    +                        if (bWholeWord && temp[0] > 0)
-    +                        {
-    +                            if ((index - windowMaxIndex == 0 ||
-    +                                 !std::isalpha(text[index - windowMaxIndex - 1])) &&
-    +                                (index - windowMaxIndex + temp.length() == textLength ||
-    +                                 !std::isalpha(text[index - windowMaxIndex + temp.length()])))
-    +                            {
-    +                                res.push_back(temp);
-    +                                ++hits;
-    +                            }
-    +                        }
-    +                        else
-    +                        {
-    +                            res.push_back(temp);
-    +                            ++hits;
-    +                        }
-                        }
-                 } //end if
+    132c132
+    <         if (firstCharacterMatchIndex > -1 && text[0] > 0)
+    ---
+    >         if (firstCharacterMatchIndex > -1)
+    244,247d243
+    <       if (text[cur_idx] < 0 || text[cur_idx - 1] < 0)
+    <       {
+    <         return;
+    <       }
+
+        wuManber.scan(s, result_wumanber,
+            [](const string &text, const string &pattern, size_t indexInPatternList, size_t startIndexInText, map<string, int> &records) {
+                // 在这里再进行全字匹配
+            +    if (text[startIndexInText] != pattern[0] || text[startIndexInText + pattern.length() - 1] != pattern[pattern.length() - 1])
+            +    {
+            +        return;
+            +    }
+            +    if (((startIndexInText == 0 ||
+            +        !std::isalpha(text[startIndexInText - 1])) &&
+            +        (startIndexInText + pattern.length() == text.length() ||
+            +        !std::isalpha(text[startIndexInText + pattern.length()]))) ||
+            +        text[startIndexInText] < 0)
+            +    {
+            +        string temp = pattern;
+            +        transform(temp.begin(), temp.end(), temp.begin(), ::tolower);
+            +        if (records.find(temp) != records.end())
+            +        {
+            +            records[temp] = records[temp] + 1;
+            +        }
+            +        else
+            +        {
+            +            records[temp] = 1;
+            +        }
+                }
+            });
     ```
 2. aho-corasick
     * 修改“_”连接符
@@ -123,12 +90,12 @@
 1. 考题1    
     bible.txt约4M，dict.txt约500K    
     结果    
-    *wumanber cost 19633 ms<br/>aho_corasick cost 5079 ms*    
+    *wu_manber cost 3826 ms<br/>aho_corasick cost 4936 ms*    
 2. 考题2    
     multi-pattern.txt约490K，multi-pattern.txt约50K    
     结果    
-    *wumanber cost 60 ms<br/>aho_corasick cost 279 ms*    
+    *wu_manber cost 17 ms<br/>aho_corasick cost 279 ms*    
 * 可以发现在纯英文和中英文混合的情况下，效率是不一致的
-
+* 不能达到要求的wu_manber是aho_corasick的30~50倍的速度
 
 

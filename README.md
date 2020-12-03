@@ -1,7 +1,7 @@
 <!--
  * @Author: tangmengjin
  * @Date: 2020-11-24 14:10:40
- * @LastEditTime: 2020-12-02 20:36:48
+ * @LastEditTime: 2020-12-03 10:17:16
  * @LastEditors: tangmengjin
  * @Description: 
  * @FilePath: /multi-pattern-match/README.md
@@ -13,7 +13,8 @@
 ## 一些约定
 * 文件编码格式为UTF8，换行符为\n,而不是\r\n
 * 一个中文为3个字符，则第一个字符必然小于0
-* “_”是连接符而不是分隔符
+* “_”是分隔符而不是连接符
+* 中文始终是全字匹配的
 
 ## 代码说明
 ### 源代码
